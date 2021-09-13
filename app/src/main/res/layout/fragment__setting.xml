@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F6F8"
+        android:orientation="vertical"
+        tools:context=".Fragment_profile">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/setting_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/photo" />
+
+            <TextView
+                android:id="@+id/setting_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_110sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Jane Doe"
+                android:textColor="@color/singup"
+                android:textSize="@dimen/_22ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/setting_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_110sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:text="janedoe123@email.com"
+                android:textColor="#727C8E" />
+
+            <Button
+                android:id="@+id/setting_btn_sdit"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_120sdp"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:text="Edit profile"
+                android:textColor="#727C8E"
+                app:strokeColor="#727C8E" />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_9sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/setting_all_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/all_order"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="All My Orders" />
+
+                <TextView
+                    android:id="@+id/setting_shipments"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/pending_shipments"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Pending Shipments" />
+
+                <TextView
+                    android:id="@+id/setting_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/pending_payment"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Pending Payments" />
+
+                <TextView
+                    android:id="@+id/setting_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/finished"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Finished Orders" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_9sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/setting_invite"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/invite"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Invite Friends" />
+
+                <TextView
+                    android:id="@+id/setting_customer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/support"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Customer Support" />
+
+                <TextView
+                    android:id="@+id/setting_rate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/rate"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Rate Our App" />
+
+                <TextView
+                    android:id="@+id/setting_suggest"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/suggest"
+                    android:drawableEnd="@drawable/more_small"
+                    android:gravity="center"
+                    android:text="Make a Suggestion" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</layout>

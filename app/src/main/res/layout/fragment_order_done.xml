@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#F5F6F8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Order_done">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btn_cancel"
+                android:src="@drawable/close"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_alignParentEnd="true"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:layout_marginTop="@dimen/_70sdp"
+            android:src="@drawable/icon_4"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp" />
+
+        <TextView
+            android:textSize="@dimen/_22ssp"
+            android:text="Order Placed !"
+            android:textColor="@color/singup"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/singup"
+            android:layout_gravity="center"
+            android:text="Your order was placed successfully. For more details, check All My Orders page under Profile tab"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_60sdp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/order_done_myorder"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            app:cornerRadius="@dimen/_8sdp"
+            android:text="@string/done"
+            android:backgroundTint="#FF6969"
+            android:textColor="#FFFFFF" />
+
+
+    </LinearLayout>
+</layout>

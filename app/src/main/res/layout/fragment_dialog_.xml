@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    app:cardCornerRadius="@dimen/_6sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_220sdp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Dialog_Fragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+    <TextView
+        android:id="@+id/tv_View"
+        android:text="View"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/thumbnails"
+        android:text="Thumbnails"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:text="Category"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_View"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/category_change"
+        android:text="Men’s Apparel"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/thumbnails"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see2"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_see" />
+
+    <TextView
+        android:id="@+id/tv_condition"
+        android:text="Condition"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_category"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/condition_change"
+        android:text="Brand New"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/category_change"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see3"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_see2" />
+
+    <TextView
+        android:id="@+id/tv_material"
+        android:text="Material"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_condition"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/material_chane"
+        android:text="Cotton"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/condition_change"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see4"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_see3" />
+
+    <TextView
+        android:id="@+id/tv_colour"
+        android:text="Colour"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_material"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/color_chane"
+        android:text="Brand New"
+        android:src="@drawable/colors"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/material_chane"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see5"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_see4"
+        app:layout_constraintStart_toEndOf="@id/color_chane"/>
+
+    <TextView
+        android:id="@+id/tv_brand"
+        android:text="Brand"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_colour"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/brand_chane"
+        android:text="All Brands"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/color_chane"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see6"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/brand_chane"
+        app:layout_constraintTop_toBottomOf="@id/img_see5" />
+
+    <TextView
+        android:id="@+id/tv_size"
+        android:text="Size"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_brand"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/size_chane"
+        android:text="Large"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/brand_chane"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see7"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/brand_chane"
+        app:layout_constraintTop_toBottomOf="@id/img_see6" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:text="Price Range"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_size"
+        android:textColor="@color/singup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/price_chane"
+        android:text="0 - 30$"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:textColor="@color/singup_opicity"
+        app:layout_constraintTop_toBottomOf="@id/size_chane"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/img_see"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_see8"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:src="@drawable/more_small"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/brand_chane"
+        app:layout_constraintTop_toBottomOf="@id/img_see7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

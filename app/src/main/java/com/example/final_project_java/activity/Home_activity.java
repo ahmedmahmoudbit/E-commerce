@@ -1,0 +1,43 @@
+package com.example.final_project_java.activity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager2.widget.ViewPager2;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import com.example.final_project_java.R;
+import com.example.final_project_java.databinding.ActivityMainHomeActivityBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+public class Home_activity extends AppCompatActivity {
+    ActivityMainHomeActivityBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main_home_activity);
+        btn_notification();
+
+        NavController navController = Navigation.findNavController(this,R.id.navfragment);
+        NavigationUI.setupWithNavController(binding.buttonNav , navController);
+
+    }
+    // intent notification button to notification activity
+    private void btn_notification(){
+        binding.notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home_activity.this , Notification_activity.class));
+            }
+        });
+    }
+}

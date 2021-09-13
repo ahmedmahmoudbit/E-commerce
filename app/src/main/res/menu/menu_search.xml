@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/best_mach"
+        android:title="Best mach" />
+
+    <item
+        android:id="@+id/top_rated"
+        android:title="TOP RATED" />
+
+    <item
+        android:id="@+id/low_high"
+        android:title="PRICE LOW-HIGH" />
+
+    <item
+        android:id="@+id/high_low"
+        android:title="PRICE HIGH-LOW" />
+
+</menu>

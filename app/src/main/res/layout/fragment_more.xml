@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_more"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<TextView
+    android:text="More"
+    android:textStyle="bold"
+    android:textSize="@dimen/_28ssp"
+    android:layout_margin="@dimen/_20sdp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="@dimen/_9sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/more_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/shipping"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Shipping Address" />
+
+            <TextView
+                android:id="@+id/more_payment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/payment"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Payment Method" />
+
+            <TextView
+                android:id="@+id/more_currency"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/currency"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Currency" />
+
+            <TextView
+                android:id="@+id/more_language"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/language"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Language"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_9sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/more_notification"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/notifications_1"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Notification Settings" />
+
+            <TextView
+                android:id="@+id/more_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/privacy"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Privacy Policy" />
+
+            <TextView
+                android:id="@+id/more_frequently"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/faq"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Frequently Asked Questions" />
+
+            <TextView
+                android:id="@+id/more_legal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/legal"
+                android:drawableEnd="@drawable/more_small"
+                android:gravity="center"
+                android:text="Legal Information" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

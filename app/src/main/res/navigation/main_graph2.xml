@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph2"
+    app:startDestination="@id/fragment_Home2">
+
+    <fragment
+        android:id="@+id/fragment_Home2"
+        android:name="com.example.final_project_java.Fragment_Home"
+        android:label="Fragment_Home"
+        tools:layout="@layout/fragment__home"
+        />
+    <fragment
+        android:id="@+id/fragment_search2"
+        android:name="com.example.final_project_java.Fragment_search"
+        android:label="Fragment_search"
+        tools:layout="@layout/fragment_search"
+        />
+    <fragment
+        android:id="@+id/fragment_carts"
+        android:name="com.example.final_project_java.Fragment_carts"
+        android:label="Fragment_carts"
+        tools:layout="@layout/fragment_carts"
+        >
+        <action
+            android:id="@+id/action_fragment_carts_to_fragment_checkout"
+            app:destination="@id/fragment_checkout"
+            app:popUpTo="@id/fragment_checkout"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_more2"
+        android:name="com.example.final_project_java.Fragment_more"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/fragment_profile2"
+        android:name="com.example.final_project_java.Fragment_profile"
+        android:label="fragment__setting"
+        tools:layout="@layout/fragment__setting" />
+    <fragment
+        android:id="@+id/order_done"
+        android:name="com.example.final_project_java.Order_done"
+        android:label="Order_done"
+        tools:layout="@layout/fragment_order_done"
+        >
+        <action
+            android:id="@+id/action_order_done_to_fragment_Home2"
+            app:destination="@id/fragment_Home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_checkout"
+        android:name="com.example.final_project_java.Fragment_checkout"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_fragment_checkout_to_order_done"
+            app:destination="@id/order_done" />
+    </fragment>
+</navigation>
