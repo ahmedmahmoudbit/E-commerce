@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.final_project_java">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.Final_project_java">
-        <activity android:name=".activity.Notification_activity"></activity>
+        <activity android:name=".ChatActivity"></activity>
+        <activity
+            android:name=".ProductActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Shope_profie_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Notification_activity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Home_activity"
             android:screenOrientation="portrait" />

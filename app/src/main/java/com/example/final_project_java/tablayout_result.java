@@ -9,13 +9,13 @@ import androidx.navigation.Navigation;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 
-public class TabLayout_fragment extends FragmentStateAdapter {
-    public TabLayout_fragment(@NonNull Fragment fragment) {
+public class tablayout_result extends FragmentStateAdapter {
+    public tablayout_result(@NonNull Fragment fragment) {
         super(fragment);
     }
 
     NavController navController;
-    public TabLayout_fragment(FragmentManager fragmentManager, Lifecycle lifecycle) {
+    public tablayout_result(FragmentManager fragmentManager, Lifecycle lifecycle) {
         super(fragmentManager , lifecycle);
     }
 

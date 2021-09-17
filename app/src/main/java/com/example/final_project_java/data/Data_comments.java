@@ -5,12 +5,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Data_comments extends RecyclerView.ViewHolder {
+public class Data_comments {
     String name , comment , time;
     int photo , ratting;
 
-    public Data_comments(@NonNull View itemView, String name, String comment, String time, int photo, int ratting) {
-        super(itemView);
+    public Data_comments(String name, String comment, String time, int photo, int ratting) {
         this.name = name;
         this.comment = comment;
         this.time = time;

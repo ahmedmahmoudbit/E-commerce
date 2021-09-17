@@ -33,7 +33,7 @@ public class Adapter_comment extends RecyclerView.Adapter<Adapter_comment.Holder
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         final Data_comments person = arrayList.get(position);
         holder.binding.ratingComment.setImageResource(person.getRatting());
-        holder.binding.photoComent.setImageResource(person.getPhoto());
+//        holder.binding.photoComent.setImageResource(person.getPhoto());
         holder.binding.ratingComment.setImageResource(person.getRatting());
         holder.binding.ratingComment.setImageResource(person.getRatting());
         holder.binding.ratingComment.setImageResource(person.getRatting());

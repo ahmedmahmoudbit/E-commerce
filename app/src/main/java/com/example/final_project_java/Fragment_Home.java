@@ -1,5 +1,6 @@
 package com.example.final_project_java;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,13 +17,14 @@ import android.view.ViewGroup;
 
 import com.example.final_project_java.adapter.Adapter_categories;
 import com.example.final_project_java.adapter.Adapter_categories_item;
+import com.example.final_project_java.data.Click_product_home;
 import com.example.final_project_java.data.Data_categories;
 import com.example.final_project_java.data.Data_category_item;
 import com.example.final_project_java.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 
-public class Fragment_Home extends Fragment {
+public class Fragment_Home extends Fragment implements Click_product_home {
     NavController navController;
     FragmentHomeBinding binding;
 
@@ -38,7 +40,7 @@ public class Fragment_Home extends Fragment {
         navController = Navigation.findNavController(view);
         category();
         item();
-
+        intent();
 
     }
 
@@ -68,10 +70,23 @@ public class Fragment_Home extends Fragment {
         categories.add(new Data_category_item("t-shirt","59.99$",R.drawable.ttshirt));
         categories.add(new Data_category_item("t-shirt","78.99$",R.drawable.ttshirt));
 
-        adapter = new Adapter_categories_item(categories,requireContext());
+        adapter = new Adapter_categories_item(categories,requireContext(),this);
         binding.recyclerViewItem.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL , false));
         binding.recyclerViewItem.setAdapter(adapter);
 
     }
 
+    private void intent() {
+        binding.shopProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity() , Shope_profie_activity.class));
+            }
+        });
+    }
+
+    @Override
+    public void onclick(int position) {
+        startActivity(new Intent(requireActivity() , ProductActivity.class));
+    }
 }

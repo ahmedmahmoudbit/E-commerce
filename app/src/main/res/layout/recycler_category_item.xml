@@ -3,27 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="data"
+            type="com.example.final_project_java.data.Data_category_item" />
     </data>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
-            android:layout_margin="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_12sdp"
-            android:layout_width="@dimen/_100sdp"
+            android:id="@+id/cardview"
+            android:layout_margin="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_125sdp"
             android:backgroundTint="#FFFFFF"
             >
 
             <ImageView
                 android:id="@+id/image_item"
-                android:layout_width="@dimen/_70sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/_70sdp"
-                android:src="@drawable/ttshirt"
+                app:imageResource="@{data.image}"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/_15sdp"
                 />
@@ -32,7 +35,7 @@
                 android:id="@+id/name_of_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Item Name"
+                android:text="@{data.name}"
                 android:layout_marginTop="@dimen/_90sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:textColor="@color/singup"
@@ -42,7 +45,7 @@
                 android:id="@+id/price_of_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="59.99"
+                android:text="@{data.price}"
                 android:layout_marginTop="@dimen/_105sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:textColor="@color/singup"

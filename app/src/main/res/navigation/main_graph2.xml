@@ -47,7 +47,8 @@
         >
         <action
             android:id="@+id/action_order_done_to_fragment_Home2"
-            app:destination="@id/fragment_Home2" />
+            app:destination="@id/fragment_Home2"
+            app:popUpTo="@id/fragment_Home2" />
     </fragment>
     <fragment
         android:id="@+id/fragment_checkout"
@@ -56,6 +57,7 @@
         tools:layout="@layout/fragment_checkout" >
         <action
             android:id="@+id/action_fragment_checkout_to_order_done"
-            app:destination="@id/order_done" />
+            app:destination="@id/order_done"
+            app:popUpTo="@id/fragment_Home2" />
     </fragment>
 </navigation>

@@ -6,62 +6,60 @@
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".Fragment_Home">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
             android:text="Categories"
-            android:textStyle="bold"
-android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/singup"
-            android:textSize="@dimen/_30ssp" />
+            android:textSize="@dimen/_30ssp"
+            android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lates"
-            android:textStyle="bold"
             android:layout_margin="@dimen/_10sdp"
+            android:text="Lates"
             android:textColor="@color/singup"
-            android:textSize="@dimen/_30ssp" />
+            android:textSize="@dimen/_30ssp"
+            android:textStyle="bold" />
 
-            <HorizontalScrollView
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_margin="@dimen/_10sdp"
                     android:id="@+id/lats_see_all"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/lates1"
-                    />
+                    android:layout_margin="@dimen/_10sdp"
+                    android:src="@drawable/lates1" />
 
                 <ImageView
-                    android:layout_margin="@dimen/_10sdp"
-                    android:id="@+id/lats_see_elegance"
+                    android:id="@+id/shop_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/elegance"
-                    />
+                    android:layout_margin="@dimen/_10sdp"
+                    android:src="@drawable/elegance" />
 
-                </LinearLayout>
-            </HorizontalScrollView>
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_item"

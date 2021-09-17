@@ -1,5 +1,4 @@
 package com.example.final_project_java;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -55,7 +54,7 @@ public class Fragment_checkout extends Fragment {
         binding.closePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().finish();
+                navController.navigateUp();
             }
         });
     }

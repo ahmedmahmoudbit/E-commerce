@@ -72,6 +72,7 @@ public class Result_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().add(new Dialog_Fragment() , "dialog").commit();
+
             }
         });
 
