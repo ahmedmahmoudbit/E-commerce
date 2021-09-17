@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Shope_profie_activity">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/elegance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/back"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Flush"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <nl.joery.animatedbottombar.AnimatedBottomBar
+            android:id="@+id/animatedbottombar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:abb_indicatorAppearance="round"
+            app:abb_indicatorHeight="@dimen/_3sdp"
+            app:abb_indicatorMargin="@dimen/_15sdp"
+            app:abb_selectedIndex="0"
+            app:abb_tabColorSelected="@color/red_based"
+            app:abb_tabColorDisabled="@color/red_based"
+            app:abb_rippleEnabled="true"
+            app:abb_indicatorColor="@color/red_based"
+            app:abb_selectedTabType="icon"
+            app:abb_tabs="@menu/menu_shope_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img"
+            app:layout_constraintBottom_toTopOf="@id/fragment_container"
+            />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/animatedbottombar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

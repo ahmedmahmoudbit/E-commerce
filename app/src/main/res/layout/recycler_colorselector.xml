@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    <variable
+        name="data"
+        type="com.example.final_project_java.data.Data_color" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_color"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_5sdp"
+            tools:src="@color/red_based"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <ImageView
+            android:id="@+id/selector"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_marginTop="4dp"
+            app:cardCornerRadius="@dimen/_40sdp"
+            android:src="@drawable/ic_check"
+            app:layout_constraintBottom_toBottomOf="@+id/image_color"
+            app:layout_constraintEnd_toEndOf="@+id/image_color"
+            app:layout_constraintStart_toStartOf="@+id/image_color"
+            app:layout_constraintTop_toTopOf="@+id/image_color">
+
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
