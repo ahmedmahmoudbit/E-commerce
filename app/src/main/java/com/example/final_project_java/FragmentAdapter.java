@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
+
 public class FragmentAdapter extends FragmentStateAdapter {
     public FragmentAdapter(@NonNull Fragment fragment) {
 

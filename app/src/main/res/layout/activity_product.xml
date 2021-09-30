@@ -15,43 +15,43 @@
 
         <ImageButton
             android:id="@+id/img_back"
-            android:src="@drawable/back_1"
             style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_item"
-            android:text="Faux Sued Ankle Boots"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_back"
-            app:layout_constraintEnd_toStartOf="@id/img_carts"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Faux Sued Ankle Boots"
+            app:layout_constraintEnd_toStartOf="@id/img_carts"
+            app:layout_constraintStart_toEndOf="@id/img_back"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_25sdp"
             android:text="49.99$"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_item"
-            app:layout_constraintStart_toEndOf="@id/img_back"
-            android:layout_marginEnd="@dimen/_25sdp"
             app:layout_constraintEnd_toStartOf="@id/img_carts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            app:layout_constraintStart_toEndOf="@id/img_back"
+            app:layout_constraintTop_toBottomOf="@id/tv_item" />
 
         <ImageView
             android:id="@+id/rating"
-            android:src="@drawable/rating_7"
-            app:layout_constraintTop_toBottomOf="@id/tv_item"
-            app:layout_constraintStart_toEndOf="@id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:src="@drawable/rating_7"
+            app:layout_constraintStart_toEndOf="@id/price"
+            app:layout_constraintTop_toBottomOf="@id/tv_item" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,31 +68,31 @@
 
         <ImageButton
             android:id="@+id/img_carts"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/cart_1"
             style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/cart_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imageslider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_220sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             app:auto_cycle="false"
             app:error_image="@drawable/bage1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_15sdp"
             app:layout_constraintTop_toBottomOf="@id/img_back"
             app:placeholder="@drawable/bage1" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:background="#F5F6F8"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
+            android:background="#F5F6F8"
             app:layout_constraintBottom_toTopOf="@id/viewpager2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,9 +108,9 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager2"
-            android:layout_margin="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="@dimen/_10sdp"
             app:layout_constraintBottom_toTopOf="@id/cardview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -126,12 +126,12 @@
             app:layout_constraintTop_toBottomOf="@id/viewpager2">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp">
 
                 <TextView
                     android:id="@+id/share"
@@ -140,11 +140,11 @@
                     android:background="@drawable/btn_share"
                     android:gravity="center"
                     android:text="SHERE THIS"
-                    android:textStyle="bold"
-                    android:textColor="#494444"
                     android:textAlignment="inherit"
+                    android:textColor="#494444"
                     android:textIsSelectable="false"
                     android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/addtocare"
                     app:layout_constraintStart_toStartOf="parent"
@@ -154,17 +154,17 @@
                     android:id="@+id/addtocare"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_45sdp"
-                    android:background="@drawable/btn_addtocare"
-                    android:textColor="#A94442"
-                    android:gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:textStyle="bold"
+                    android:background="@drawable/btn_addtocare"
+                    android:gravity="center"
                     android:text="ADD TO CART"
                     android:textAlignment="inherit"
+                    android:textColor="#A94442"
                     android:textIsSelectable="false"
                     android:textSize="@dimen/_15ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/share"
                     app:layout_constraintTop_toTopOf="parent" />
 

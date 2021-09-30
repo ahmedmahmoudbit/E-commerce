@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Sign_up_fragment">
+        tools:context=".activity.register.Sign_up_fragment">
 
 
         <RelativeLayout
@@ -48,7 +48,7 @@
             android:layout_width="@dimen/_150sdp"
             android:layout_height="@dimen/_150sdp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_20sdp" />
+            android:layout_marginTop="@dimen/_10sdp" />
 
             <androidx.cardview.widget.CardView
             android:layout_gravity="center"
@@ -83,13 +83,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/register_username"
+            android:id="@+id/register_name"
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeWidth="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="username"
+            android:hint="name"
             android:maxWidth="@dimen/_250sdp"
             android:minWidth="@dimen/_225sdp"
             app:startIconDrawable="@drawable/ic_pesonal">
@@ -120,34 +120,77 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_repassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeWidth="0dp"
+                    android:hint="Re Password"
+                    android:maxWidth="@dimen/_250sdp"
+                    android:minWidth="@dimen/_225sdp"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_password">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+        <FrameLayout
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/progress"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp" />
 
-            <View
-                android:layout_width="@dimen/_260sdp"
-                android:layout_height="@dimen/_52sdp"
-                android:layout_marginStart="@dimen/_26sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/ic_btn_regisert" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/click_sign_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
+                <View
+                    android:id="@+id/viewClick"
+                    android:layout_width="@dimen/_260sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:padding="@dimen/_1sdp"
+                    android:background="@drawable/ic_btn_regisert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_125sdp"
-                android:layout_marginTop="@dimen/_24sdp"
-                android:text="SIGN UP"
-                android:textColor="#fff"
-                android:textSize="@dimen/_12ssp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SIGN UP"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-        </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </FrameLayout>
+
 
         <TextView
             android:layout_width="@dimen/_220sdp"

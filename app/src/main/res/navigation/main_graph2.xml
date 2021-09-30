@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_more2"
-        android:name="com.example.final_project_java.Fragment_more"
+        android:name="com.example.final_project_java.activity.logoutAndmore.Fragment_more"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
     <fragment

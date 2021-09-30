@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
 
 
 public class tablayout_result extends FragmentStateAdapter {

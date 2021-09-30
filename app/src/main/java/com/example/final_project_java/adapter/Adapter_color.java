@@ -46,7 +46,6 @@ public class Adapter_color extends RecyclerView.Adapter<Adapter_color.Holder> {
 
 
         // select
-
         holder.binding.imageColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +59,6 @@ public class Adapter_color extends RecyclerView.Adapter<Adapter_color.Holder> {
         } else {
             holder.binding.selector.setVisibility(View.GONE);
         }
-
         // select
     }
 

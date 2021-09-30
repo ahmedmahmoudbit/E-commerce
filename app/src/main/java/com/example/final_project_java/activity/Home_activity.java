@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.final_project_java.ChatActivity;
@@ -20,7 +21,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class Home_activity extends AppCompatActivity {
+    private static final String TAG = "Home_activity";
     ActivityMainHomeActivityBinding binding;
+    public static String ACCESS_TOKEN ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class Home_activity extends AppCompatActivity {
 
         NavController navController = Navigation.findNavController(this,R.id.navfragment);
         NavigationUI.setupWithNavController(binding.buttonNav , navController);
+
+        Log.i(TAG, "onCreate: " + ACCESS_TOKEN);
 
     }
 

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class Adapter_size extends RecyclerView.Adapter<Adapter_size.Holder> {
     ArrayList<Data_size> arrayList;
     Context context;
-    int select = -1;
+    int select = -1; // int .
 
     // text select
     private void selected(int adapterPosition) {
@@ -27,6 +27,7 @@ public class Adapter_size extends RecyclerView.Adapter<Adapter_size.Holder> {
         notifyDataSetChanged();
         select = adapterPosition;
     }
+    /////
 
 
     public Adapter_size(ArrayList<Data_size> arrayList, Context context) {
@@ -57,6 +58,7 @@ public class Adapter_size extends RecyclerView.Adapter<Adapter_size.Holder> {
         } else {
             holder.binding.tvSize.setTextColor(context.getResources().getColor(R.color.singup));
         }
+        // **********************
     }
 
     @Override

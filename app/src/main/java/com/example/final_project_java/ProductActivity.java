@@ -23,11 +23,13 @@ public class ProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_product);
 
+
         // image slider
         imageList.add(new SlideModel(R.drawable.bage1, "Elephants and tigers may become extinct."));
         imageList.add(new SlideModel(R.drawable.bage2, "Elephants and tigers may become extinct."));
         imageList.add(new SlideModel(R.drawable.bage3, "Elephants and tigers may become extinct."));
         binding.imageslider.setImageList(imageList,true);
+
         tabLayout();
         intent_carts();
         intent_back();
