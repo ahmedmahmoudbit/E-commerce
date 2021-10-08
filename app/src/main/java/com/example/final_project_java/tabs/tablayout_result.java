@@ -1,4 +1,4 @@
-package com.example.final_project_java;
+package com.example.final_project_java.tabs;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -7,6 +7,10 @@ import androidx.lifecycle.Lifecycle;
 import androidx.navigation.NavController;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.final_project_java.Fragment_Home;
+import com.example.final_project_java.activity.carts.Fragment_carts;
+import com.example.final_project_java.Fragment_profile;
+import com.example.final_project_java.activity.lasts_product.Fragment_search;
 import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
 
 

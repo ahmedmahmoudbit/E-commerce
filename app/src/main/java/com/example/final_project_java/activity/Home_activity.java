@@ -2,12 +2,9 @@ package com.example.final_project_java.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,13 +14,13 @@ import android.view.View;
 import com.example.final_project_java.ChatActivity;
 import com.example.final_project_java.R;
 import com.example.final_project_java.databinding.ActivityMainHomeActivityBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
+import com.example.final_project_java.shared.PreferenceManager;
 
 public class Home_activity extends AppCompatActivity {
     private static final String TAG = "Home_activity";
     ActivityMainHomeActivityBinding binding;
     public static String ACCESS_TOKEN ;
+    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +29,7 @@ public class Home_activity extends AppCompatActivity {
         btn_notification();
         btn_message();
 
+        preferenceManager = new PreferenceManager(this);
         NavController navController = Navigation.findNavController(this,R.id.navfragment);
         NavigationUI.setupWithNavController(binding.buttonNav , navController);
 

@@ -6,10 +6,14 @@
     <data>
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".activity.login.Fragment_Login">
 
 
@@ -68,6 +72,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    app:boxBackgroundMode="none"
+                    app:hintTextColor="@color/red_based"
                     android:hint="@string/email"
                     android:maxWidth="@dimen/_250sdp"
                     android:background="@null"
@@ -90,6 +96,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:hint="password"
+                    app:boxBackgroundMode="none"
+                    app:hintTextColor="@color/red_based"
                     android:maxWidth="@dimen/_250sdp"
                     android:minWidth="@dimen/_225sdp"
                     app:endIconMode="password_toggle"
@@ -112,6 +120,8 @@
             android:id="@+id/login_to_forgott"
             android:textSize="@dimen/_8ssp"
             android:padding="@dimen/_1sdp"
+            app:boxBackgroundMode="none"
+            app:hintTextColor="@color/red_based"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,4 +187,5 @@
             android:text="By creating an account, you agree to our Terms of Service and Privacy Policy" />
 
     </LinearLayout>
+    </ScrollView>
 </layout>

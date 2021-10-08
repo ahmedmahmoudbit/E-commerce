@@ -1,4 +1,4 @@
-package com.example.final_project_java;
+package com.example.final_project_java.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.final_project_java.activity.Home_activity;
+import com.example.final_project_java.R;
+import com.example.final_project_java.activity.carts.ActivityCarts;
+import com.example.final_project_java.activity.carts.Fragment_carts;
 import com.example.final_project_java.databinding.ActivityProductBinding;
+import com.example.final_project_java.tabs.Tab_product;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +24,14 @@ public class ProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_product);
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_product);
 
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("book_2");
+            binding.tvItem.setText(value);
+        }
 
         // image slider
         imageList.add(new SlideModel(R.drawable.bage1, "Elephants and tigers may become extinct."));
@@ -73,8 +82,8 @@ public class ProductActivity extends AppCompatActivity {
         binding.imgCarts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProductActivity.this, Fragment_carts.class));
-
+                startActivity(new Intent(ProductActivity.this, ActivityCarts.class));
+                finish();
             }
         });
     }
@@ -84,8 +93,9 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ProductActivity.this , Home_activity.class));
+                finish();
             }
         });
     }
 
-    }
+}

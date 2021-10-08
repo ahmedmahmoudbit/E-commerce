@@ -9,16 +9,17 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
+import com.example.final_project_java.activity.lasts_product.DataLastProduct;
 import com.example.final_project_java.data.Data_search;
 import com.example.final_project_java.databinding.RecyclerSearchLastBinding;
 
 import java.util.List;
 
 public class Adapter_search extends RecyclerView.Adapter<Adapter_search.Holder> {
-    List<Data_search> data_searches;
+    List<DataLastProduct> data_searches;
     Context context;
 
-    public Adapter_search(List<Data_search> data_searches, Context context) {
+    public Adapter_search(List<DataLastProduct> data_searches, Context context) {
         this.data_searches = data_searches;
         this.context = context;
     }
@@ -31,11 +32,7 @@ public class Adapter_search extends RecyclerView.Adapter<Adapter_search.Holder> 
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-      final Data_search person = data_searches.get(position);
-      holder.binding.textName.setText(person.getName());
-      holder.binding.textPrice.setText(person.getPrice());
-      holder.binding.searchImage.setImageResource(person.getImg());
-
+        holder.binding.setData(data_searches.get(position));
     }
 
 

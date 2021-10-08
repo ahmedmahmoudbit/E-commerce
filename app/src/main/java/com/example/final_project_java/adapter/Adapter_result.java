@@ -50,4 +50,7 @@ public class Adapter_result extends RecyclerView.Adapter<Adapter_result.Holder> 
             this.binding = binding;
         }
     }
+
+
+
 }

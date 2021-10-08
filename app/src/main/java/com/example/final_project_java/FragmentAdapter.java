@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.final_project_java.activity.carts.Fragment_carts;
+import com.example.final_project_java.activity.lasts_product.Fragment_search;
 import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
 
 public class FragmentAdapter extends FragmentStateAdapter {

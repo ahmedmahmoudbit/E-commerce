@@ -13,13 +13,13 @@
         />
     <fragment
         android:id="@+id/fragment_search2"
-        android:name="com.example.final_project_java.Fragment_search"
+        android:name="com.example.final_project_java.activity.lasts_product.Fragment_search"
         android:label="Fragment_search"
         tools:layout="@layout/fragment_search"
         />
     <fragment
         android:id="@+id/fragment_carts"
-        android:name="com.example.final_project_java.Fragment_carts"
+        android:name="com.example.final_project_java.activity.carts.Fragment_carts"
         android:label="Fragment_carts"
         tools:layout="@layout/fragment_carts"
         >

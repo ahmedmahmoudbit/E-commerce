@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5F6F8"
-        tools:context=".ProductActivity">
+        tools:context=".activity.ProductActivity">
 
         <ImageButton
             android:id="@+id/img_back"
@@ -133,40 +133,73 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp">
 
-                <TextView
-                    android:id="@+id/share"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_45sdp"
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:background="@drawable/btn_share"
-                    android:gravity="center"
-                    android:text="SHERE THIS"
-                    android:textAlignment="inherit"
-                    android:textColor="#494444"
-                    android:textIsSelectable="false"
-                    android:textSize="@dimen/_15ssp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/addtocare"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintEnd_toStartOf="@id/imageadd"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_rawRes="@raw/share" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/share"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toBottomOf="@id/circleImageView"
+                    app:layout_constraintEnd_toEndOf="@id/circleImageView"
+                    app:layout_constraintStart_toStartOf="@id/circleImageView"
+                    app:layout_constraintTop_toTopOf="@+id/circleImageView"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/share" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/imageadd"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/btn_addtocare"
+                    app:civ_border_width="@dimen/_20sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/circleImageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_corner_radius="@dimen/_20sdp" />
 
                 <TextView
                     android:id="@+id/addtocare"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_45sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
-                    android:background="@drawable/btn_addtocare"
-                    android:gravity="center"
                     android:text="ADD TO CART"
                     android:textAlignment="inherit"
                     android:textColor="#A94442"
                     android:textIsSelectable="false"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/share"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:gravity="center"
+                    app:layout_constraintEnd_toStartOf="@id/add_care"
+                    app:layout_constraintTop_toTopOf="@id/imageadd"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageadd"
+                    app:layout_constraintStart_toStartOf="@id/imageadd" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/add_care"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageadd"
+                    app:layout_constraintEnd_toEndOf="@id/imageadd"
+                    app:layout_constraintTop_toTopOf="@+id/imageadd"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@id/addtocare"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/carts" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.final_project_java.activity.ProductActivity;
 import com.example.final_project_java.adapter.Adapter_categories;
 import com.example.final_project_java.adapter.Adapter_categories_item;
 import com.example.final_project_java.data.Click_product_home;
@@ -27,6 +28,8 @@ import java.util.ArrayList;
 public class Fragment_Home extends Fragment implements Click_product_home {
     NavController navController;
     FragmentHomeBinding binding;
+    ArrayList<Data_category_item> categories = new ArrayList<>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +66,6 @@ public class Fragment_Home extends Fragment implements Click_product_home {
 
     private void item() {
         Adapter_categories_item adapter;
-        ArrayList<Data_category_item> categories = new ArrayList<>();
 
         categories.add(new Data_category_item("t-shirt","26.99$",R.drawable.ttshirt));
         categories.add(new Data_category_item("t-shirt","28.99$",R.drawable.ttshirt));
@@ -87,6 +89,13 @@ public class Fragment_Home extends Fragment implements Click_product_home {
 
     @Override
     public void onclick(int position) {
-        startActivity(new Intent(requireActivity() , ProductActivity.class));
+        Intent intent = new Intent(requireActivity() , ProductActivity.class);
+        intent.putExtra("book_2", categories.get(position).getName());
+
+        startActivity(intent);
+    }
+
+    @Override
+    public void onclick(Data_category_item categories) {
     }
 }

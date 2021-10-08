@@ -2,6 +2,11 @@ package com.example.final_project_java.activity.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,16 +15,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.final_project_java.R;
-import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.activity.Home_activity;
 import com.example.final_project_java.databinding.FragmentLoginBinding;
+import com.example.final_project_java.network.RetrofitApis;
+import com.example.final_project_java.shared.Constant;
+import com.example.final_project_java.shared.PreferenceManager;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -33,6 +34,7 @@ public class Fragment_Login extends Fragment {
     private static final String TAG = "Fragment_Login";
     NavController navController;
     RetrofitApis apis;
+    PreferenceManager preferenceManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +48,12 @@ public class Fragment_Login extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        preferenceManager = new PreferenceManager(requireContext());
+
+
 
         listener();
+        shared();
     }
 
     private void listener() {
@@ -61,6 +67,14 @@ public class Fragment_Login extends Fragment {
             retrofit();
         });
 
+    }
+
+    private void shared() {
+        if (preferenceManager.getBoolean(Constant.KEY_PREFERENCE_NAME) ) {
+            startActivity(new Intent(requireContext() , Home_activity.class));
+            requireActivity().finish();
+
+        }
     }
 
     private void retrofit() {
@@ -96,8 +110,13 @@ public class Fragment_Login extends Fragment {
 
                 } if (response.isSuccessful()) {
                     Home_activity.ACCESS_TOKEN = response.body().getData().getAccessToken();
+
+                    preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
+                    preferenceManager.putInteger(Constant.Key_LOGIN ,response.body().getData().getId());
                     Toast.makeText(getContext(), "Welcome", Toast.LENGTH_SHORT).show();
+
                     startActivity((new Intent(requireActivity() , Home_activity.class)));
+                    requireActivity().finish();
                     progressBar(false);
                 }
 
@@ -122,4 +141,7 @@ public class Fragment_Login extends Fragment {
             binding.progress.setVisibility(View.GONE);
         }
     }
+
+
+
 }

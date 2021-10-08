@@ -30,6 +30,8 @@ public class Result_activity extends AppCompatActivity {
          tabLayout();
          buttons();
 
+         // binding.searchSearch.Add
+
     }
 
     private void tabLayout() {
@@ -83,5 +85,9 @@ public class Result_activity extends AppCompatActivity {
             }
         });
     }
+
+//    private void filter(String text) {
+//        for ()
+//    }
 
 }

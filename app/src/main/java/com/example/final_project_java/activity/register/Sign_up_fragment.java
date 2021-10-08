@@ -1,5 +1,6 @@
 package com.example.final_project_java.activity.register;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,8 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.final_project_java.R;
+import com.example.final_project_java.activity.Home_activity;
 import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.databinding.FragmentSignUpFragmentBinding;
+import com.example.final_project_java.shared.Constant;
+import com.example.final_project_java.shared.PreferenceManager;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -30,6 +34,7 @@ public class Sign_up_fragment extends Fragment {
     FragmentSignUpFragmentBinding binding;
     NavController navController;
     RetrofitApis apis;
+    PreferenceManager preferenceManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,25 +47,23 @@ public class Sign_up_fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        preferenceManager = new PreferenceManager(requireContext());
+
+        if (preferenceManager.getBoolean(Constant.KEY_PREFERENCE_NAME)) {
+            startActivity(new Intent(requireContext() , Home_activity.class));
+            requireActivity().finish();
+        }
 
         listener();
     }
 
     private void listener() {
 
-        binding.sigupToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               navController.navigate(R.id.action_sign_up_fragment_to_fragment_Login2);
-            }
-        });
+        binding.sigupToLogin.setOnClickListener(v -> requireActivity().onBackPressed());
 
-        binding.clickSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                progressbar(true);
-                createApis();
-            }
+        binding.clickSignUp.setOnClickListener(v -> {
+            progressbar(true);
+            createApis();
         });
 
     }
@@ -100,13 +103,16 @@ public class Sign_up_fragment extends Fragment {
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
                 if (!response.isSuccessful()) {
-                    RegisterResponseError message = new Gson().fromJson(response.errorBody().charStream() , RegisterResponseError.class);
+                    RegisterResponseError message = new Gson().fromJson(response.errorBody().charStream(), RegisterResponseError.class);
                     Toast.makeText(requireContext(), message.getData().toString(), Toast.LENGTH_SHORT).show();
                     progressbar(false);
-                    return;
                 } else {
                     Toast.makeText(getContext(), "Account Created", Toast.LENGTH_SHORT).show();
-                    navController.navigate(R.id.action_sign_up_fragment_to_fragment_Login2);
+                    startActivity((new Intent(requireActivity(), Home_activity.class)));
+                    requireActivity().finish();
+
+                    preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
+                    preferenceManager.putInteger(Constant.Key_REGISTER , response.body().getData().getId());
                     progressbar(false);
                 }
 

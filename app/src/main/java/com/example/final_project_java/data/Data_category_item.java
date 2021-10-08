@@ -1,6 +1,8 @@
 package com.example.final_project_java.data;
 
-public class Data_category_item {
+import java.io.Serializable;
+
+public class Data_category_item implements Serializable {
 
     String name , price ;
     int image;

@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="data"
+            type="com.example.final_project_java.activity.lasts_product.DataLastProduct" />
     </data>
 
     <LinearLayout
@@ -29,7 +31,7 @@
 
                 <TextView
                     android:id="@+id/text_name"
-                    android:text="name of item"
+                    android:text='@{data.name ?? "" }'
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginStart="@dimen/_70sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
@@ -38,7 +40,7 @@
 
                 <TextView
                     android:id="@+id/text_price"
-                    android:text="name of item"
+                    android:text='@{data.price ?? "" }'
                     android:textColor="#FF6969"
                     android:layout_marginTop="@dimen/_25sdp"
                     android:layout_marginStart="@dimen/_70sdp"

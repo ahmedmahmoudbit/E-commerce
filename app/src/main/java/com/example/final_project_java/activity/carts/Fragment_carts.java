@@ -1,6 +1,9 @@
-package com.example.final_project_java;
+package com.example.final_project_java.activity.carts;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,10 +13,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
+import com.example.final_project_java.R;
 import com.example.final_project_java.adapter.Adapter_carts;
 import com.example.final_project_java.data.Data_carts;
 import com.example.final_project_java.databinding.FragmentCartsBinding;

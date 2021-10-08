@@ -57,4 +57,6 @@ public class Fragment_result extends Fragment {
 
     }
 
+
+
 }
