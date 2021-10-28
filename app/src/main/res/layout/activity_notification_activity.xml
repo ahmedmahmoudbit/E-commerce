@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.Notification_activity">
+        tools:context=".activity.activities.Notification_activity">
 
         <ImageButton
             android:id="@+id/btn_close"

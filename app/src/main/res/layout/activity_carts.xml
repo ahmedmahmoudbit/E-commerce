@@ -11,13 +11,10 @@
         android:layout_height="match_parent"
         tools:context=".activity.carts.ActivityCarts">
 
-        <fragment
+        <FrameLayout
             android:id="@+id/nav"
-            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/main_graph2" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>

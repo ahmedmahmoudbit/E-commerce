@@ -16,8 +16,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.Result_activity;
+import com.example.final_project_java.activity.activities.ProductActivity;
+import com.example.final_project_java.activity.activities.Result_activity;
 import com.example.final_project_java.adapter.Adapter_search;
+import com.example.final_project_java.data.Click_product_home;
 import com.example.final_project_java.databinding.FragmentSearchBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
@@ -31,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_search extends Fragment {
+public class FragmentLasts extends Fragment implements Click_product_home {
     FragmentSearchBinding binding;
     NavController controller;
     List<DataLastProduct> dataLastProducts = new ArrayList<>();
@@ -56,35 +58,53 @@ public class Fragment_search extends Fragment {
                 startActivity(new Intent(getContext() , Result_activity.class));
             }
         });
-
     }
 
     private void lasts() {
-
+        progressBar(true);
         ApiRetrofit.getapi().create(RetrofitApis.class).lasts().enqueue(new Callback<LastsResponse>() {
             @Override
             public void onResponse(@NotNull Call<LastsResponse> call, @NotNull Response<LastsResponse> response) {
-                Toast.makeText(requireContext(), "Yes", Toast.LENGTH_SHORT).show();
 
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     dataLastProducts = response.body().getData();
-                    adapter = new Adapter_search(dataLastProducts , requireContext());
-                    binding.recyclerviewSearch.setLayoutManager(new LinearLayoutManager(requireContext()));
+                    adapter = new Adapter_search(dataLastProducts , requireContext() , FragmentLasts.this::onclick);
+                    binding.recyclerviewSearch.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
                     binding.recyclerviewSearch.setAdapter(adapter);
+                    progressBar(false);
+
                 } else {
-
                     Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show();
-
+                    progressBar(false);
                 }
             }
 
             @Override
             public void onFailure(Call<LastsResponse> call, Throwable t)
             {
-                Toast.makeText(requireContext(), "No", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                progressBar(false);
             }
         });
     }
 
+    private void progressBar(Boolean loading) {
+        if (loading) {
+            binding.progress.setVisibility(View.VISIBLE);
+            binding.recyclerviewSearch.setVisibility(View.GONE);
+        } else {
+            binding.recyclerviewSearch.setVisibility(View.VISIBLE);
+            binding.progress.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onclick(int position) {
+        Intent intent = new Intent(requireActivity() , ProductActivity.class);
+        intent.putExtra("name", dataLastProducts.get(position).getItemName());
+        intent.putExtra("price", dataLastProducts.get(position).getItemPrice());
+        intent.putExtra("id", dataLastProducts.get(position).getItemId());
+        startActivity(intent);
+    }
 }

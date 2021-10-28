@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.Result_activity">
+        tools:context=".activity.activities.Result_activity">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

@@ -16,11 +16,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.Home_activity;
+import com.example.final_project_java.activity.activities.Home_activity;
 import com.example.final_project_java.databinding.FragmentLoginBinding;
 import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.shared.Constant;
 import com.example.final_project_java.shared.PreferenceManager;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -50,8 +52,7 @@ public class Fragment_Login extends Fragment {
         navController = Navigation.findNavController(view);
         preferenceManager = new PreferenceManager(requireContext());
 
-
-
+        token_device();
         listener();
         shared();
     }
@@ -59,10 +60,9 @@ public class Fragment_Login extends Fragment {
     private void listener() {
 
         binding.loginToSignUp.setOnClickListener(v -> navController.navigate(R.id.action_fragment_Login2_to_sign_up_fragment));
-
         binding.loginToForgott.setOnClickListener(v -> navController.navigate(R.id.action_fragment_Login2_to_forgot_password_fragment));
-
         binding.loginToHome.setOnClickListener(v -> {
+
             progressBar(true);
             retrofit();
         });
@@ -75,6 +75,16 @@ public class Fragment_Login extends Fragment {
             requireActivity().finish();
 
         }
+    }
+
+    private void token_device() {
+        FirebaseMessaging.getInstance().getToken().addOnSuccessListener(new OnSuccessListener<String>() {
+            @Override
+            public void onSuccess(String s) {
+                Log.i(TAG, "onSuccess: Token device "+ s);
+                preferenceManager.putString(Constant.TOKEN_DEVICE , s);
+            }
+        });
     }
 
     private void retrofit() {
@@ -91,7 +101,9 @@ public class Fragment_Login extends Fragment {
             Toast.makeText(requireContext(), "Empty Data", Toast.LENGTH_SHORT).show();
         }
 
-        LoginRequest request = new LoginRequest(email, password);
+        // String token = "Bearer" + Constant.ACCESS_TOKEN ;
+        String token = preferenceManager.getString(Constant.TOKEN_DEVICE);
+        LoginRequest request = new LoginRequest(email, password , token);
         login(apis, request);
 
     }
@@ -109,10 +121,11 @@ public class Fragment_Login extends Fragment {
                     return;
 
                 } if (response.isSuccessful()) {
-                    Home_activity.ACCESS_TOKEN = response.body().getData().getAccessToken();
 
                     preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
                     preferenceManager.putInteger(Constant.Key_LOGIN ,response.body().getData().getId());
+                    preferenceManager.putString(Constant.ACCESS_TOKEN ,response.body().getData().getAccessToken());
+
                     Toast.makeText(getContext(), "Welcome", Toast.LENGTH_SHORT).show();
 
                     startActivity((new Intent(requireActivity() , Home_activity.class)));

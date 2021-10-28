@@ -9,17 +9,19 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
+import com.example.final_project_java.activity.carts.show_cart.DataItem;
+import com.example.final_project_java.activity.carts.show_cart.ProductId;
 import com.example.final_project_java.data.Data_carts;
 import com.example.final_project_java.databinding.RecyclerCartsBinding;
 
 import java.util.List;
 
 public class Adapter_carts extends RecyclerView.Adapter<Adapter_carts.Holder> {
-    List<Data_carts> data_carts;
+    List<DataItem> productId;
     Context context;
 
-    public Adapter_carts(List<Data_carts> data_carts, Context context) {
-        this.data_carts = data_carts;
+    public Adapter_carts(List<DataItem> productId, Context context) {
+        this.productId = productId;
         this.context = context;
     }
 
@@ -31,17 +33,13 @@ public class Adapter_carts extends RecyclerView.Adapter<Adapter_carts.Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        final  Data_carts person = data_carts.get(position);
-        holder.binding.cartsImage.setImageResource(person.getImg());
-        holder.binding.cartsTextTitle.setText(person.getName());
-        holder.binding.cartsTextDescription.setText(person.getDescription());
-        holder.binding.cartsPrice.setText(person.getPrice());
+        holder.binding.setData(productId.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return data_carts.size();
+        return productId.size();
     }
     class Holder extends RecyclerView.ViewHolder {
         RecyclerCartsBinding binding;

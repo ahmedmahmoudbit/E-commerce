@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.Home_activity;
+import com.example.final_project_java.activity.activities.Home_activity;
 import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.databinding.FragmentSignUpFragmentBinding;
 import com.example.final_project_java.shared.Constant;
@@ -113,6 +113,7 @@ public class Sign_up_fragment extends Fragment {
 
                     preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
                     preferenceManager.putInteger(Constant.Key_REGISTER , response.body().getData().getId());
+                    preferenceManager.putString(Constant.ACCESS_TOKEN , response.body().getData().getAccessToken());
                     progressbar(false);
                 }
 

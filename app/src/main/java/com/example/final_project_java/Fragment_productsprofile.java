@@ -9,20 +9,24 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.final_project_java.activity.ProductActivity;
+import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.adapter.Adapter_categories_item;
 import com.example.final_project_java.data.Click_product_home;
 import com.example.final_project_java.data.Data_category_item;
 import com.example.final_project_java.databinding.FragmentProductsprofileBinding;
+import com.example.final_project_java.shared.Constant;
+import com.example.final_project_java.shared.PreferenceManager;
 
 import java.util.ArrayList;
 
 public class Fragment_productsprofile extends Fragment implements Click_product_home {
-        FragmentProductsprofileBinding binding;
+   FragmentProductsprofileBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,7 +40,6 @@ public class Fragment_productsprofile extends Fragment implements Click_product_
 
         recyclerbag();
         recycler_jacket();
-
     }
 
     private void recyclerbag() {
@@ -75,8 +78,4 @@ public class Fragment_productsprofile extends Fragment implements Click_product_
         startActivity(new Intent(requireActivity() , ProductActivity.class));
     }
 
-    @Override
-    public void onclick(Data_category_item categories) {
-        startActivity(new Intent(requireActivity() , ProductActivity.class));
-    }
 }

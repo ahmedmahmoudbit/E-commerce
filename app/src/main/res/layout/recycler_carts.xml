@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="data"
+            type="com.example.final_project_java.activity.carts.show_cart.DataItem" />
     </data>
 
         <RelativeLayout
@@ -36,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_120sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="name of product"
+                android:text="@{data.productId.itemName}"
                 android:textSize="@dimen/_15ssp"
                 android:textStyle="bold" />
 
@@ -47,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_120sdp"
                 android:layout_marginTop="@dimen/_30sdp"
-                android:text="description of prodact"
+                android:text='@{data.productId.description ?? "" }'
                 android:textSize="@dimen/_11ssp" />
 
             <TextView
@@ -56,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_120sdp"
                 android:layout_marginTop="@dimen/_45sdp"
-                android:text="salary of product"
+                android:text='@{data.productId.itemPrice ?? ""}'
                 android:textColor="#FF6B6B"
                 android:textSize="@dimen/_11ssp" />
 

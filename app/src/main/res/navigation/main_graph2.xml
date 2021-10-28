@@ -13,7 +13,7 @@
         />
     <fragment
         android:id="@+id/fragment_search2"
-        android:name="com.example.final_project_java.activity.lasts_product.Fragment_search"
+        android:name="com.example.final_project_java.activity.lasts_product.FragmentLasts"
         android:label="Fragment_search"
         tools:layout="@layout/fragment_search"
         />

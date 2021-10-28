@@ -10,9 +10,13 @@ public class LoginRequest {
     @SerializedName("password")
     private String password;
 
-    public LoginRequest(String email, String password) {
+    @SerializedName("device_token")
+    private String device_token;
+
+    public LoginRequest(String email, String password, String device_token) {
         this.email = email;
         this.password = password;
+        this.device_token = device_token;
     }
 
     public String getEmail() {
@@ -31,12 +35,20 @@ public class LoginRequest {
         this.password = password;
     }
 
+    public String getDevice_token() {
+        return device_token;
+    }
+
+    public void setDevice_token(String device_token) {
+        this.device_token = device_token;
+    }
+
     @Override
     public String toString() {
         return "LoginRequest{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", device_token='" + device_token + '\'' +
                 '}';
     }
-
 }

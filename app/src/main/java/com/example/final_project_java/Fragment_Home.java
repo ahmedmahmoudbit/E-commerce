@@ -15,7 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.final_project_java.activity.ProductActivity;
+import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.adapter.Adapter_categories;
 import com.example.final_project_java.adapter.Adapter_categories_item;
 import com.example.final_project_java.data.Click_product_home;
@@ -90,12 +90,9 @@ public class Fragment_Home extends Fragment implements Click_product_home {
     @Override
     public void onclick(int position) {
         Intent intent = new Intent(requireActivity() , ProductActivity.class);
-        intent.putExtra("book_2", categories.get(position).getName());
-
+        intent.putExtra("name", categories.get(position).getName());
+        intent.putExtra("price", categories.get(position).getPrice());
         startActivity(intent);
     }
 
-    @Override
-    public void onclick(Data_category_item categories) {
-    }
 }

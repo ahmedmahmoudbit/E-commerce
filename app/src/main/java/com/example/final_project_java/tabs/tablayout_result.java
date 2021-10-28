@@ -10,7 +10,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.final_project_java.Fragment_Home;
 import com.example.final_project_java.activity.carts.Fragment_carts;
 import com.example.final_project_java.Fragment_profile;
-import com.example.final_project_java.activity.lasts_product.Fragment_search;
+import com.example.final_project_java.activity.lasts_product.FragmentLasts;
 import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
 
 
@@ -30,7 +30,7 @@ public class tablayout_result extends FragmentStateAdapter {
 
 
         switch (position) {
-            case 1 : new Fragment_search();
+            case 1 : new FragmentLasts();
             case 2 : new Fragment_carts();
             case 3 : new Fragment_profile();
             case 4 : new Fragment_more();

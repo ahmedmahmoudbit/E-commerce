@@ -14,8 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.Home_activity;
-import com.example.final_project_java.activity.MainActivity;
+import com.example.final_project_java.activity.activities.MainActivity;
 import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.databinding.FragmentMoreBinding;
 import com.example.final_project_java.network.ApiRetrofit;
@@ -51,7 +50,7 @@ public class Fragment_more extends Fragment {
     }
 
     private void apicreate() {
-        String token = "Bearer " + Home_activity.ACCESS_TOKEN;
+        String token = "Bearer " + Constant.ACCESS_TOKEN;
         ApiRetrofit.getapi().create(RetrofitApis.class).logout(token).enqueue(new Callback<LogoutResponse>() {
             @Override
             public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {

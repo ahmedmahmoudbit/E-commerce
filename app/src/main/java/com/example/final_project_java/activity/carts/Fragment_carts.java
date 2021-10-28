@@ -1,9 +1,11 @@
 package com.example.final_project_java.activity.carts;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,15 +16,32 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.final_project_java.R;
+import com.example.final_project_java.activity.carts.show_cart.DataItem;
+import com.example.final_project_java.activity.carts.show_cart.ProductId;
+import com.example.final_project_java.activity.carts.show_cart.ShowItemCardResponse;
 import com.example.final_project_java.adapter.Adapter_carts;
 import com.example.final_project_java.data.Data_carts;
 import com.example.final_project_java.databinding.FragmentCartsBinding;
+import com.example.final_project_java.network.ApiRetrofit;
+import com.example.final_project_java.network.RetrofitApis;
+import com.example.final_project_java.shared.Constant;
+import com.example.final_project_java.shared.PreferenceManager;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_carts extends Fragment {
+    private static final String TAG = "Fragment_carts";
     FragmentCartsBinding binding;
     NavController navController;
+    Adapter_carts adapter;
+    List<DataItem> categories;
+    PreferenceManager preferenceManager;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,23 +53,35 @@ public class Fragment_carts extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
+        preferenceManager = new PreferenceManager(requireContext());
+        categories = new ArrayList<>();
         carts();
     }
 
     private void carts() {
-        Adapter_carts adapter;
-        ArrayList<Data_carts> categories = new ArrayList<>();
 
-        categories.add(new Data_carts("item1","...","25.99$",R.drawable.ttshirt));
-        categories.add(new Data_carts("item2","...","25.99$",R.drawable.ttshirt));
-        categories.add(new Data_carts("item1","...","25.99$",R.drawable.ttshirt));
-        categories.add(new Data_carts("item1","...","25.99$",R.drawable.ttshirt));
-        categories.add(new Data_carts("item1","...","25.99$",R.drawable.ttshirt));
+        String token = "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
+        ApiRetrofit.getapi().create(RetrofitApis.class).carts_show(token).enqueue(new Callback<ShowItemCardResponse>() {
+            @Override
+            public void onResponse(Call<ShowItemCardResponse> call, Response<ShowItemCardResponse> response) {
+                if(response.isSuccessful()) {
+                    categories = response.body().getData();
+                    adapter = new Adapter_carts(categories,requireContext());
+                    binding.recyclerViewCarts.setLayoutManager(new LinearLayoutManager(requireContext()));
+                    binding.recyclerViewCarts.setAdapter(adapter);
 
-        adapter = new Adapter_carts(categories,requireContext());
-        binding.recyclerViewCarts.setLayoutManager(new LinearLayoutManager(requireContext()));
-        binding.recyclerViewCarts.setAdapter(adapter);
+                } else {
+                    Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ShowItemCardResponse> call, Throwable t) {
+                Toast.makeText(requireContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         binding.buyNow.setOnClickListener(new View.OnClickListener() {
             @Override

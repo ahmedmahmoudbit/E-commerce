@@ -1,4 +1,4 @@
-package com.example.final_project_java.activity;
+package com.example.final_project_java.activity.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,7 +8,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.final_project_java.ChatActivity;
@@ -19,7 +18,7 @@ import com.example.final_project_java.shared.PreferenceManager;
 public class Home_activity extends AppCompatActivity {
     private static final String TAG = "Home_activity";
     ActivityMainHomeActivityBinding binding;
-    public static String ACCESS_TOKEN ;
+
     private PreferenceManager preferenceManager;
 
     @Override
@@ -33,7 +32,6 @@ public class Home_activity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this,R.id.navfragment);
         NavigationUI.setupWithNavController(binding.buttonNav , navController);
 
-        Log.i(TAG, "onCreate: " + ACCESS_TOKEN);
 
     }
 
