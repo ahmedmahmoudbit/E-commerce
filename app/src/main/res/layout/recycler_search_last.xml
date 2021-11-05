@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.final_project_java.activity.lasts_product.DataLastProduct" />
+            type="com.example.final_project_java.activity.lasts_product.DataItem" />
     </data>
 
     <LinearLayout
@@ -24,15 +24,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/search_image"
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img_lasts"
+                    app:riv_corner_radius="@dimen/_10sdp"
                     android:src="@drawable/backpack"
-                    android:layout_width="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp" />
 
                 <TextView
                     android:id="@+id/text_name"
-                    android:text='@{data.itemName ?? "" }'
+                    android:text='@{data.itemName}'
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginStart="@dimen/_70sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
@@ -41,7 +43,7 @@
 
                 <TextView
                     android:id="@+id/text_price"
-                    android:text='@{data.itemPrice ?? "" }'
+                    android:text='@{data.price + "$" }'
                     android:textColor="#FF6969"
                     android:layout_marginTop="@dimen/_25sdp"
                     android:layout_marginStart="@dimen/_70sdp"

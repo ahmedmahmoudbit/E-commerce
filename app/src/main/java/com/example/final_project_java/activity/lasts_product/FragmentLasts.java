@@ -18,9 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.activity.activities.Result_activity;
-import com.example.final_project_java.adapter.Adapter_search;
+import com.example.final_project_java.adapter.AdapterSearch;
 import com.example.final_project_java.data.Click_product_home;
-import com.example.final_project_java.databinding.FragmentSearchBinding;
+import com.example.final_project_java.databinding.FragmentLastsBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
 
@@ -34,15 +34,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FragmentLasts extends Fragment implements Click_product_home {
-    FragmentSearchBinding binding;
+    FragmentLastsBinding binding;
     NavController controller;
-    List<DataLastProduct> dataLastProducts = new ArrayList<>();
-    Adapter_search adapter;
+    List<DataItem> dataLastProducts = new ArrayList<>();
+    AdapterSearch adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_lasts, container, false);
         return binding.getRoot();
     }
 
@@ -69,9 +69,9 @@ public class FragmentLasts extends Fragment implements Click_product_home {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     dataLastProducts = response.body().getData();
-                    adapter = new Adapter_search(dataLastProducts , requireContext() , FragmentLasts.this::onclick);
-                    binding.recyclerviewSearch.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
-                    binding.recyclerviewSearch.setAdapter(adapter);
+                    adapter = new AdapterSearch(dataLastProducts , requireContext() , FragmentLasts.this::onclick);
+                    binding.recyclerviewLasts.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
+                    binding.recyclerviewLasts.setAdapter(adapter);
                     progressBar(false);
 
                 } else {
@@ -92,9 +92,9 @@ public class FragmentLasts extends Fragment implements Click_product_home {
     private void progressBar(Boolean loading) {
         if (loading) {
             binding.progress.setVisibility(View.VISIBLE);
-            binding.recyclerviewSearch.setVisibility(View.GONE);
+            binding.recyclerviewLasts.setVisibility(View.GONE);
         } else {
-            binding.recyclerviewSearch.setVisibility(View.VISIBLE);
+            binding.recyclerviewLasts.setVisibility(View.VISIBLE);
             binding.progress.setVisibility(View.GONE);
         }
     }
@@ -103,7 +103,7 @@ public class FragmentLasts extends Fragment implements Click_product_home {
     public void onclick(int position) {
         Intent intent = new Intent(requireActivity() , ProductActivity.class);
         intent.putExtra("name", dataLastProducts.get(position).getItemName());
-        intent.putExtra("price", dataLastProducts.get(position).getItemPrice());
+        intent.putExtra("price", dataLastProducts.get(position).getPrice());
         intent.putExtra("id", dataLastProducts.get(position).getItemId());
         startActivity(intent);
     }

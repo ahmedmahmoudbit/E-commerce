@@ -10,18 +10,19 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.lasts_product.DataLastProduct;
+import com.example.final_project_java.activity.lasts_product.DataItem;
 import com.example.final_project_java.data.Click_product_home;
 import com.example.final_project_java.databinding.RecyclerSearchLastBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Adapter_search extends RecyclerView.Adapter<Adapter_search.Holder> {
-    List<DataLastProduct> data_searches;
+public class AdapterSearch extends RecyclerView.Adapter<AdapterSearch.Holder> {
+    List<DataItem> data_searches;
     Context context;
     Click_product_home click_product_home;
 
-    public Adapter_search(List<DataLastProduct> data_searches, Context context, Click_product_home click_product_home) {
+    public AdapterSearch(List<DataItem> data_searches, Context context, Click_product_home click_product_home) {
         this.data_searches = data_searches;
         this.context = context;
         this.click_product_home = click_product_home;
@@ -36,6 +37,7 @@ public class Adapter_search extends RecyclerView.Adapter<Adapter_search.Holder> 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.binding.setData(data_searches.get(position));
+        Picasso.get().load(data_searches.get(position).getImages().get(0).getImage()).placeholder(R.drawable.ic_remove_image).into(holder.binding.imgLasts);
 
         holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
             @Override

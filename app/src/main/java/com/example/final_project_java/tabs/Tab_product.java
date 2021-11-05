@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.final_project_java.Fragment_changeproduct;
+import com.example.final_project_java.FargmentChangeSizes;
 import com.example.final_project_java.Fragment_reviewsprofile;
 import com.example.final_project_java.data.Fragment_product_details;
 
@@ -28,7 +28,7 @@ public class Tab_product extends FragmentStateAdapter {
             case 2 : return new Fragment_reviewsprofile() ;
         }
 
-        return new Fragment_changeproduct();
+        return new FargmentChangeSizes();
     }
 
     @Override

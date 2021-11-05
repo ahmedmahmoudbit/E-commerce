@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
     </data>
 
     <LinearLayout
@@ -32,10 +31,10 @@
             app:hintTextColor="@color/singup"
             app:boxBackgroundColor="#4D727C8E"
             app:helperTextEnabled="false"
-            app:boxCornerRadiusBottomEnd="@dimen/_30sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_30sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_30sdp"
-            app:boxCornerRadiusTopStart="@dimen/_30sdp"
+            app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_20sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_20sdp"
+            app:boxCornerRadiusTopStart="@dimen/_20sdp"
             app:boxStrokeWidthFocused="0dp"
             app:boxStrokeColor="#4D727C8E"
             app:boxStrokeWidth="0dp"
@@ -82,7 +81,7 @@
             android:layout_height="wrap_content" >
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_search"
+                android:id="@+id/recyclerview_lasts"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

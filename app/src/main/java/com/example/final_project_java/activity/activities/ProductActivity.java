@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.carts.ActivityCarts;
+import com.example.final_project_java.activity.carts.add_cart.AddToCartRequest;
 import com.example.final_project_java.activity.carts.add_cart.AddToCartResponse;
 import com.example.final_project_java.databinding.ActivityProductBinding;
 import com.example.final_project_java.network.ApiRetrofit;
@@ -38,6 +39,8 @@ public class ProductActivity extends AppCompatActivity {
     Tab_product tab_adapter;
     PreferenceManager preferenceManager;
     String id ;
+    String size ;
+    String color ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class ProductActivity extends AppCompatActivity {
             String name = extras.getString("name");
             String price = extras.getString("price");
             id = String.valueOf(extras.getInt("id"));
+            size = extras.getString("size");
+            color = extras.getString("color");
             binding.tvItem.setText(name);
             binding.price.setText(price);
         }
@@ -120,13 +125,16 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void intent_add_to_cart() {
+
+        AddToCartRequest addToCartRequest = new AddToCartRequest(size,color,id);
+
         String getToken =  "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
         Log.i(TAG, "intent_add_to_cart: test");
 
         binding.imageadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApiRetrofit.getapi().create(RetrofitApis.class).add_to_cart(getToken , id).enqueue(new Callback<AddToCartResponse>() {
+                ApiRetrofit.getapi().create(RetrofitApis.class).add_to_cart(getToken , addToCartRequest).enqueue(new Callback<AddToCartResponse>() {
 
                     @Override
                     public void onResponse(Call<AddToCartResponse> call, Response<AddToCartResponse> response) {
