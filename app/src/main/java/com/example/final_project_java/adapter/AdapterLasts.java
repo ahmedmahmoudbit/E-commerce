@@ -11,19 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.lasts_product.DataItem;
+import com.example.final_project_java.activity.lasts_product.ImagesItem;
 import com.example.final_project_java.data.Click_product_home;
-import com.example.final_project_java.databinding.RecyclerSearchLastBinding;
+import com.example.final_project_java.databinding.RecyclerLastsBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class AdapterSearch extends RecyclerView.Adapter<AdapterSearch.Holder> {
-    List<DataItem> data_searches;
+public class AdapterLasts extends RecyclerView.Adapter<AdapterLasts.Holder> {
+    List<DataItem> arrayList;
     Context context;
     Click_product_home click_product_home;
 
-    public AdapterSearch(List<DataItem> data_searches, Context context, Click_product_home click_product_home) {
-        this.data_searches = data_searches;
+    public AdapterLasts(List<DataItem> arrayList, Context context, Click_product_home click_product_home) {
+        this.arrayList = arrayList;
         this.context = context;
         this.click_product_home = click_product_home;
     }
@@ -31,13 +32,20 @@ public class AdapterSearch extends RecyclerView.Adapter<AdapterSearch.Holder> {
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new Holder(DataBindingUtil.inflate(LayoutInflater.from(context) , R.layout.recycler_search_last , parent , false));
+        return new Holder(DataBindingUtil.inflate(LayoutInflater.from(context) , R.layout.recycler_lasts, parent , false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        holder.binding.setData(data_searches.get(position));
-        Picasso.get().load(data_searches.get(position).getImages().get(0).getImage()).placeholder(R.drawable.ic_remove_image).into(holder.binding.imgLasts);
+        holder.binding.setData(arrayList.get(position));
+
+
+        if (arrayList.get(position).getImages().isEmpty()) {
+            holder.binding.imgLasts.setImageResource(R.drawable.ic_remove_image);
+
+        } else {
+            Picasso.get().load(arrayList.get(position).getImages().get(0).getImage()).into(holder.binding.imgLasts);
+        }
 
         holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +58,12 @@ public class AdapterSearch extends RecyclerView.Adapter<AdapterSearch.Holder> {
 
     @Override
     public int getItemCount() {
-        return data_searches.size();
+        return arrayList.size();
     }
 
     class Holder extends RecyclerView.ViewHolder {
-        RecyclerSearchLastBinding binding;
-        public Holder(@NonNull RecyclerSearchLastBinding binding) {
+        RecyclerLastsBinding binding;
+        public Holder(@NonNull RecyclerLastsBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

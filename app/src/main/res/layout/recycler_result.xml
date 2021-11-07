@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="data"
+            type="com.example.final_project_java.activity.search.ProductData" />
     </data>
 
     <LinearLayout
@@ -11,19 +14,23 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_120sdp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             app:cardCornerRadius="@dimen/_8sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/jacket_result"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/img"
+                    android:scaleType="fitCenter"
+                    android:layout_width="@dimen/_300sdp"
                     android:layout_height="@dimen/_120sdp"
                     android:src="@drawable/jacket1"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -34,18 +41,18 @@
                     android:id="@+id/tv_prodact_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="jacket bad boy - Black"
+                    android:text="@{data.itemName}"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:textColor="@color/singup"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/jacket_result" />
+                    app:layout_constraintTop_toBottomOf="@id/img" />
 
                 <TextView
                     android:id="@+id/salary_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="25.58$"
+                    android:text='@{data.price + "$"}'
                     android:textColor="@color/singup"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rating_7"
-                    android:text="     4.6"
+                    android:text="      50"
                     android:textSize="@dimen/_8ssp"
                     android:textAlignment="5"
                     android:layout_marginTop="@dimen/_3sdp"

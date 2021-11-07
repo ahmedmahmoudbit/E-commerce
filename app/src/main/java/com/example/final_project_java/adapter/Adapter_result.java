@@ -2,6 +2,7 @@ package com.example.final_project_java.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,17 +10,23 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
+import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.data.Click_product_home;
 import com.example.final_project_java.data.Data_result;
 import com.example.final_project_java.databinding.RecyclerResultBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adapter_result extends RecyclerView.Adapter<Adapter_result.Holder> {
-    ArrayList<Data_result> arrayList;
+    List<ProductData> arrayList;
+    Click_product_home click;
     Context context;
 
-    public Adapter_result(ArrayList<Data_result> arrayList, Context context) {
+    public Adapter_result(List<ProductData> arrayList, Click_product_home click, Context context) {
         this.arrayList = arrayList;
+        this.click = click;
         this.context = context;
     }
 
@@ -31,11 +38,23 @@ public class Adapter_result extends RecyclerView.Adapter<Adapter_result.Holder> 
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        final Data_result person = arrayList.get(position);
-            holder.binding.jacketResult.setImageResource(person.getImg());
-            holder.binding.ratingResult.setText(person.getRating());
-            holder.binding.salaryResult.setText(person.getSalary());
-            holder.binding.tvProdactResult.setText(person.getName());
+        holder.binding.setData(arrayList.get(position));
+
+
+        if (arrayList.get(position).getImages().isEmpty()) {
+            holder.binding.img.setImageResource(R.drawable.ic_remove_image);
+
+        } else {
+            Picasso.get().load(arrayList.get(position).getImages().get(0).getImage()).into(holder.binding.img);
+        }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                click.onclick(position);
+            }
+        });
+
     }
 
     @Override

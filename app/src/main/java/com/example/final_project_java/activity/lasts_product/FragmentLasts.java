@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.activity.activities.Result_activity;
-import com.example.final_project_java.adapter.AdapterSearch;
+import com.example.final_project_java.adapter.AdapterLasts;
 import com.example.final_project_java.data.Click_product_home;
 import com.example.final_project_java.databinding.FragmentLastsBinding;
 import com.example.final_project_java.network.ApiRetrofit;
@@ -37,7 +37,7 @@ public class FragmentLasts extends Fragment implements Click_product_home {
     FragmentLastsBinding binding;
     NavController controller;
     List<DataItem> dataLastProducts = new ArrayList<>();
-    AdapterSearch adapter;
+    AdapterLasts adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,10 +52,10 @@ public class FragmentLasts extends Fragment implements Click_product_home {
         controller = Navigation.findNavController(view);
         lasts();
 
-        binding.searchSearch.setOnClickListener(new View.OnClickListener() {
+        binding.searchRecently.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext() , Result_activity.class));
+                startActivity(new Intent(requireActivity() , Result_activity.class));
             }
         });
     }
@@ -69,7 +69,7 @@ public class FragmentLasts extends Fragment implements Click_product_home {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     dataLastProducts = response.body().getData();
-                    adapter = new AdapterSearch(dataLastProducts , requireContext() , FragmentLasts.this::onclick);
+                    adapter = new AdapterLasts(dataLastProducts , requireContext() , FragmentLasts.this);
                     binding.recyclerviewLasts.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
                     binding.recyclerviewLasts.setAdapter(adapter);
                     progressBar(false);

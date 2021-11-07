@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.final_project_java.activity.carts.Fragment_carts;
 import com.example.final_project_java.activity.lasts_product.FragmentLasts;
 import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
+import com.example.final_project_java.activity.search.Fragment_result;
 
 public class FragmentAdapter extends FragmentStateAdapter {
     public FragmentAdapter(@NonNull Fragment fragment) {
