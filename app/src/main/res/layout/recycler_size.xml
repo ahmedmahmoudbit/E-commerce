@@ -6,13 +6,13 @@
     <data>
     <variable
         name="data"
-        type="com.example.final_project_java.data.Data_size" />
+        type="com.example.final_project_java.activity.search.ProductSize" />
     </data>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="@dimen/_7sdp"
@@ -28,7 +28,7 @@
                     android:id="@+id/tv_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{data.size}"
+                    android:text="@{data.name}"
                     tools:text="36"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -2,22 +2,26 @@ package com.example.final_project_java.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.data.Data_color;
+import com.example.final_project_java.activity.search.ProductColor;
 import com.example.final_project_java.databinding.RecyclerColorselectorBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Adapter_color extends RecyclerView.Adapter<Adapter_color.Holder> {
-    ArrayList<Data_color> arrayList;
+@RequiresApi(api = Build.VERSION_CODES.O)
+public class AdapterColor extends RecyclerView.Adapter<AdapterColor.Holder> {
+    List<ProductColor> arrayList;
     Context context;
     int select = -1;
 
@@ -28,7 +32,7 @@ public class Adapter_color extends RecyclerView.Adapter<Adapter_color.Holder> {
         select = adapterPosition;
     }
 
-    public Adapter_color(ArrayList<Data_color> arrayList, Context context) {
+    public AdapterColor(List<ProductColor> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -41,8 +45,9 @@ public class Adapter_color extends RecyclerView.Adapter<Adapter_color.Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        holder.binding.setData(arrayList.get(position));
-        holder.binding.imageColor.setImageResource(arrayList.get(position).getColor());
+
+        //int color = Integer.parseUnsignedInt(arrayList.get(position).getColorid(), 16);
+        holder.binding.imageColor.setBackgroundColor(Color.parseColor(arrayList.get(position).getColorid()));
 
 
         // select

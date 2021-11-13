@@ -3,7 +3,9 @@ package com.example.final_project_java.activity.search;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ProductColor {
+import java.io.Serializable;
+
+public class ProductColor implements Serializable {
     @SerializedName("colorid")
     @Expose
     private String colorid;

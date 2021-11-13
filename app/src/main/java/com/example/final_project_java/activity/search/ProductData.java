@@ -3,9 +3,11 @@ package com.example.final_project_java.activity.search;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ProductData {
+public class ProductData implements Serializable {
+
     @SerializedName("item_id")
     @Expose
     private Integer itemId;

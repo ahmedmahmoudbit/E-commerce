@@ -18,7 +18,6 @@ import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.adapter.Adapter_result;
 import com.example.final_project_java.data.Click_product_home;
-import com.example.final_project_java.data.Data_result;
 import com.example.final_project_java.databinding.FragmentResultBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
@@ -30,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_result extends Fragment implements Click_product_home{
+public class FragmentProducts extends Fragment implements Click_product_home{
     FragmentResultBinding binding;
     List<ProductData> list;
     Adapter_result adapter;
@@ -47,18 +46,15 @@ public class Fragment_result extends Fragment implements Click_product_home{
         super.onViewCreated(view, savedInstanceState);
          list = new ArrayList<>();
         products();
-
-
     }
 
     private void products() {
-
         ApiRetrofit.getapi().create(RetrofitApis.class).product().enqueue(new Callback<ProductResponse>() {
             @Override
             public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
                 if (response.isSuccessful()) {
                     list = response.body().getData();
-                    adapter = new Adapter_result(list, Fragment_result.this,requireContext());
+                    adapter = new Adapter_result(list, FragmentProducts.this,requireContext());
                     binding.recyclerResult.setLayoutManager(new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL));
                     binding.recyclerResult.setAdapter(adapter);
 
@@ -77,10 +73,8 @@ public class Fragment_result extends Fragment implements Click_product_home{
 
     @Override
     public void onclick(int position) {
-        Intent intent = new Intent(requireActivity() , ProductActivity.class);
-        intent.putExtra("name", list.get(position).getItemName());
-        intent.putExtra("price", list.get(position).getPrice());
-        intent.putExtra("id", list.get(position).getItemId());
+        Intent intent = new Intent(requireContext() , ProductActivity.class);
+        intent.putExtra("product", list.get(position));
         startActivity(intent);
     }
 }

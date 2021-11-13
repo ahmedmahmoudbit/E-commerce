@@ -16,12 +16,13 @@ import com.example.final_project_java.R;
 import com.example.final_project_java.activity.carts.ActivityCarts;
 import com.example.final_project_java.activity.carts.add_cart.AddToCartRequest;
 import com.example.final_project_java.activity.carts.add_cart.AddToCartResponse;
+import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.databinding.ActivityProductBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.shared.Constant;
 import com.example.final_project_java.shared.PreferenceManager;
-import com.example.final_project_java.tabs.Tab_product;
+import com.example.final_project_java.tabs.TabProduct;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
@@ -36,11 +37,12 @@ public class ProductActivity extends AppCompatActivity {
     private static final String TAG = "ProductActivity";
     ActivityProductBinding binding;
     List<SlideModel> imageList = new ArrayList<>();
-    Tab_product tab_adapter;
+    TabProduct tab_adapter;
     PreferenceManager preferenceManager;
-    String id ;
-    String size ;
-    String color ;
+
+    String id , name ,  size , color ;
+    ProductData productData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,22 +50,17 @@ public class ProductActivity extends AppCompatActivity {
         binding= DataBindingUtil.setContentView(this, R.layout.activity_product);
         preferenceManager = new PreferenceManager(this);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String name = extras.getString("name");
-            String price = extras.getString("price");
-            id = String.valueOf(extras.getInt("id"));
-            size = extras.getString("size");
-            color = extras.getString("color");
-            binding.tvItem.setText(name);
-            binding.price.setText(price);
-        }
+        productData = new ProductData();
+        productData = (ProductData) getIntent().getSerializableExtra("product");
+        binding.tvItem.setText(productData.getItemName());
+        binding.price.setText(productData.getPrice());
 
-        // image slider
-        imageList.add(new SlideModel(R.drawable.bage1, "Elephants and tigers may become extinct."));
-        imageList.add(new SlideModel(R.drawable.bage2, "Elephants and tigers may become extinct."));
-        imageList.add(new SlideModel(R.drawable.bage3, "Elephants and tigers may become extinct."));
-        binding.imageslider.setImageList(imageList,true);
+
+        for (int i = 0; i < productData.getImages().size(); i++) {
+            imageList.add(new SlideModel(productData.getImages().get(i).getImage()));
+        }
+           binding.imageslider.setImageList(imageList,true);
+
 
         tabLayout();
         intent_carts();
@@ -73,7 +70,7 @@ public class ProductActivity extends AppCompatActivity {
 
     private void tabLayout() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        tab_adapter = new Tab_product(fragmentManager , getLifecycle());
+        tab_adapter = new TabProduct(fragmentManager , getLifecycle() , productData);
         binding.viewpager2.setAdapter(tab_adapter);
 
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Product"));

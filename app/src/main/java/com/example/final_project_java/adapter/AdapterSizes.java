@@ -10,13 +10,15 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
+import com.example.final_project_java.activity.search.ProductSize;
 import com.example.final_project_java.data.Data_size;
 import com.example.final_project_java.databinding.RecyclerSizeBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterSizes extends RecyclerView.Adapter<AdapterSizes.Holder> {
-    ArrayList<Data_size> arrayList;
+    List<ProductSize> arrayList;
     Context context;
     int select = -1;
 
@@ -26,7 +28,7 @@ public class AdapterSizes extends RecyclerView.Adapter<AdapterSizes.Holder> {
         select = adapterPosition;
     }
 
-    public AdapterSizes(ArrayList<Data_size> arrayList, Context context) {
+    public AdapterSizes(List<ProductSize> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }

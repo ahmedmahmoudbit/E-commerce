@@ -6,17 +6,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.final_project_java.FargmentChangeSizes;
+import com.example.final_project_java.FargmentChanges;
 import com.example.final_project_java.Fragment_reviewsprofile;
+import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.data.Fragment_product_details;
 
-public class Tab_product extends FragmentStateAdapter {
-    public Tab_product(@NonNull Fragment fragment) {
+public class TabProduct extends FragmentStateAdapter {
+    ProductData productData;
+    public TabProduct(@NonNull Fragment fragment) {
         super(fragment);
     }
 
-    public Tab_product(FragmentManager fragmentManager, Lifecycle lifecycle) {
+    public TabProduct(FragmentManager fragmentManager, Lifecycle lifecycle , ProductData productData) {
         super(fragmentManager, lifecycle);
+        this.productData = productData;
     }
 
     @NonNull
@@ -28,7 +31,7 @@ public class Tab_product extends FragmentStateAdapter {
             case 2 : return new Fragment_reviewsprofile() ;
         }
 
-        return new FargmentChangeSizes();
+        return new FargmentChanges(productData);
     }
 
     @Override
