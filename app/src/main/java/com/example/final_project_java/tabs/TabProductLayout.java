@@ -11,13 +11,13 @@ import com.example.final_project_java.Fragment_reviewsprofile;
 import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.data.Fragment_product_details;
 
-public class TabProduct extends FragmentStateAdapter {
+public class TabProductLayout extends FragmentStateAdapter {
     ProductData productData;
-    public TabProduct(@NonNull Fragment fragment) {
+    public TabProductLayout(@NonNull Fragment fragment) {
         super(fragment);
     }
 
-    public TabProduct(FragmentManager fragmentManager, Lifecycle lifecycle , ProductData productData) {
+    public TabProductLayout(FragmentManager fragmentManager, Lifecycle lifecycle , ProductData productData) {
         super(fragmentManager, lifecycle);
         this.productData = productData;
     }

@@ -25,9 +25,6 @@ import java.util.List;
 public class FargmentChanges extends Fragment {
     private static final String TAG = "Fragment_changeproduct";
     FragmentChangeproductBinding binding;
-    ArrayList<ProductSize> sizesItem;
-    AdapterSizes adapter;
-    String size , color , id;
     ProductData productData;
 
     public FargmentChanges(ProductData productData) {
@@ -45,7 +42,6 @@ public class FargmentChanges extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sizesItem = new ArrayList<>();
         change_color();
         change_size();
 
@@ -53,11 +49,6 @@ public class FargmentChanges extends Fragment {
 
     private void change_color() {
         AdapterColor adapter;
-
-//        arrayList.add(new Data_color(R.color.red_based));
-//        arrayList.add(new Data_color(R.color.teal_200));
-//        arrayList.add(new Data_color(R.color.purple_500));
-
         adapter = new AdapterColor(productData.getColor(), requireContext());
         binding.rvColor.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
         binding.rvColor.setAdapter(adapter);
@@ -65,7 +56,10 @@ public class FargmentChanges extends Fragment {
     }
 
     private void change_size() {
-
+        AdapterSizes adapter;
+        adapter = new AdapterSizes(productData.getSizes(), requireContext());
+        binding.rvSize.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
+        binding.rvSize.setAdapter(adapter);
 
     }
 

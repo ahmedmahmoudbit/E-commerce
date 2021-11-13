@@ -45,10 +45,7 @@ public class AdapterColor extends RecyclerView.Adapter<AdapterColor.Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-
-        //int color = Integer.parseUnsignedInt(arrayList.get(position).getColorid(), 16);
         holder.binding.imageColor.setBackgroundColor(Color.parseColor(arrayList.get(position).getColorid()));
-
 
         // select
         holder.binding.imageColor.setOnClickListener(new View.OnClickListener() {

@@ -22,7 +22,7 @@ import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
 import com.example.final_project_java.shared.Constant;
 import com.example.final_project_java.shared.PreferenceManager;
-import com.example.final_project_java.tabs.TabProduct;
+import com.example.final_project_java.tabs.TabProductLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
@@ -37,10 +37,8 @@ public class ProductActivity extends AppCompatActivity {
     private static final String TAG = "ProductActivity";
     ActivityProductBinding binding;
     List<SlideModel> imageList = new ArrayList<>();
-    TabProduct tab_adapter;
+    TabProductLayout tab_adapter;
     PreferenceManager preferenceManager;
-
-    String id , name ,  size , color ;
     ProductData productData;
 
 
@@ -55,22 +53,17 @@ public class ProductActivity extends AppCompatActivity {
         binding.tvItem.setText(productData.getItemName());
         binding.price.setText(productData.getPrice());
 
-
-        for (int i = 0; i < productData.getImages().size(); i++) {
-            imageList.add(new SlideModel(productData.getImages().get(i).getImage()));
-        }
-           binding.imageslider.setImageList(imageList,true);
-
-
         tabLayout();
-        intent_carts();
-        intent_back();
-        intent_add_to_cart();
+        intent();
+        showImageSlider();
+        transferDataToCarts();
+
     }
+
 
     private void tabLayout() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        tab_adapter = new TabProduct(fragmentManager , getLifecycle() , productData);
+        tab_adapter = new TabProductLayout(fragmentManager , getLifecycle() , productData);
         binding.viewpager2.setAdapter(tab_adapter);
 
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Product"));
@@ -101,7 +94,13 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
-    private void intent_carts() {
+    private void intent() {
+        binding.imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         binding.imgCarts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,19 +110,16 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
-    private void intent_back() {
-        binding.imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProductActivity.this , Home_activity.class));
-                finish();
-            }
-        });
+    private void showImageSlider(){
+        for (int i = 0; i < productData.getImages().size(); i++) {
+            imageList.add(new SlideModel(productData.getImages().get(i).getImage()));
+        }
+        binding.imageslider.setImageList(imageList,true);
     }
 
-    private void intent_add_to_cart() {
+    private void transferDataToCarts() {
 
-        AddToCartRequest addToCartRequest = new AddToCartRequest(size,color,id);
+        AddToCartRequest addToCartRequest = new AddToCartRequest("","",String.valueOf(productData.getItemId()));
 
         String getToken =  "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
         Log.i(TAG, "intent_add_to_cart: test");
