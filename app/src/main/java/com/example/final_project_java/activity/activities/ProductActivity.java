@@ -41,12 +41,12 @@ public class ProductActivity extends AppCompatActivity {
     PreferenceManager preferenceManager;
     ProductData productData;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this, R.layout.activity_product);
         preferenceManager = new PreferenceManager(this);
+
 
         productData = new ProductData();
         productData = (ProductData) getIntent().getSerializableExtra("product");

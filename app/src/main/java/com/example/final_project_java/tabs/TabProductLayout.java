@@ -6,13 +6,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.final_project_java.FargmentChanges;
+import com.example.final_project_java.activity.search.FargmentChanges;
 import com.example.final_project_java.Fragment_reviewsprofile;
 import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.data.Fragment_product_details;
 
 public class TabProductLayout extends FragmentStateAdapter {
     ProductData productData;
+
     public TabProductLayout(@NonNull Fragment fragment) {
         super(fragment);
     }

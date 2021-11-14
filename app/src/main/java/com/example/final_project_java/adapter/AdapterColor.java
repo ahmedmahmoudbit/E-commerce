@@ -55,7 +55,6 @@ public class AdapterColor extends RecyclerView.Adapter<AdapterColor.Holder> {
             }
         });
 
-
         if (select == position) {
             holder.binding.selector.setVisibility(View.VISIBLE);
         } else {

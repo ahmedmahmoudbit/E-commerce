@@ -1,4 +1,4 @@
-package com.example.final_project_java;
+package com.example.final_project_java.activity.search;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.final_project_java.R;
 import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.activity.search.ProductSize;
 import com.example.final_project_java.adapter.AdapterColor;
@@ -34,7 +35,7 @@ public class FargmentChanges extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_changeproduct, container, false);
+        binding= DataBindingUtil.inflate(inflater, R.layout.fragment_changeproduct, container, false);
         return binding.getRoot();
 
     }

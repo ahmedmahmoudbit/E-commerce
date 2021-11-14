@@ -10,23 +10,22 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.lasts_product.DataItem;
-import com.example.final_project_java.activity.lasts_product.ImagesItem;
-import com.example.final_project_java.data.Click_product_home;
+import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.databinding.RecyclerLastsBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AdapterLasts extends RecyclerView.Adapter<AdapterLasts.Holder> {
-    List<DataItem> arrayList;
+    List<ProductData> arrayList;
     Context context;
-    Click_product_home click_product_home;
+    ClickProducts click_products;
 
-    public AdapterLasts(List<DataItem> arrayList, Context context, Click_product_home click_product_home) {
+    public AdapterLasts(List<ProductData> arrayList, Context context, ClickProducts click_products) {
         this.arrayList = arrayList;
         this.context = context;
-        this.click_product_home = click_product_home;
+        this.click_products = click_products;
     }
 
     @NonNull
@@ -50,7 +49,7 @@ public class AdapterLasts extends RecyclerView.Adapter<AdapterLasts.Holder> {
         holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click_product_home.onclick(position);
+                click_products.onclick(position);
             }
         });
     }

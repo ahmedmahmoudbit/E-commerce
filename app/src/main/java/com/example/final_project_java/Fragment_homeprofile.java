@@ -14,15 +14,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.final_project_java.activity.activities.ProductActivity;
-import com.example.final_project_java.adapter.Adapter_categories_item;
-import com.example.final_project_java.data.Click_product_home;
+import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.adapter.AdapterHomeItems;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.data.Data_category_item;
 import com.example.final_project_java.databinding.FragmentHomeprofileBinding;
 
 import java.util.ArrayList;
 
-public class Fragment_homeprofile extends Fragment implements Click_product_home {
+public class Fragment_homeprofile extends Fragment implements ClickProducts {
     FragmentHomeprofileBinding binding;
+    ArrayList<ProductData> arrayList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,29 +36,29 @@ public class Fragment_homeprofile extends Fragment implements Click_product_home
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recycler_item();
+//        recycler_item();
 
     }
 
-    private void recycler_item() {
-        ArrayList<Data_category_item> arrayList = new ArrayList<>();
-        Adapter_categories_item adapter;
-
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket1));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket2));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket3));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket4));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket5));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage1));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage2));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage3));
-        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage4));
-
-        adapter = new Adapter_categories_item(arrayList, requireContext(), this);
-        binding.items.setLayoutManager(new GridLayoutManager(requireContext(), 3));
-        binding.items.setAdapter(adapter);
-
-    }
+//    private void recycler_item() {
+//        arrayList = new ArrayList<>();
+//        AdapterHomeItems adapter;
+//
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket1));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket2));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket3));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket4));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.jacket5));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage1));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage2));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage3));
+//        arrayList.add(new Data_category_item("bage", "25.26$", R.drawable.bage4));
+//
+//        adapter = new AdapterHomeItems(arrayList, requireContext(), this);
+//        binding.items.setLayoutManager(new GridLayoutManager(requireContext(), 3));
+//        binding.items.setAdapter(adapter);
+//
+//    }
 
     @Override
     public void onclick(int position) {

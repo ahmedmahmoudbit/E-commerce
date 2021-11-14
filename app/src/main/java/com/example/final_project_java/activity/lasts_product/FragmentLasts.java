@@ -18,8 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.activity.activities.Result_activity;
+import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.adapter.AdapterLasts;
-import com.example.final_project_java.data.Click_product_home;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.databinding.FragmentLastsBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
@@ -33,14 +34,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FragmentLasts extends Fragment implements Click_product_home {
+public class FragmentLasts extends Fragment implements ClickProducts {
     FragmentLastsBinding binding;
     NavController controller;
-    List<DataItem> dataLastProducts = new ArrayList<>();
+    List<ProductData> list;
     AdapterLasts adapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_lasts, container, false);
         return binding.getRoot();
@@ -50,6 +51,7 @@ public class FragmentLasts extends Fragment implements Click_product_home {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
+        list = new ArrayList<>();
         lasts();
 
         binding.searchRecently.setOnClickListener(new View.OnClickListener() {
@@ -68,16 +70,15 @@ public class FragmentLasts extends Fragment implements Click_product_home {
 
                 if (response.isSuccessful()) {
                     assert response.body() != null;
-                    dataLastProducts = response.body().getData();
-                    adapter = new AdapterLasts(dataLastProducts , requireContext() , FragmentLasts.this);
+                    list = response.body().getData();
+                    adapter = new AdapterLasts(list , requireContext() , FragmentLasts.this);
                     binding.recyclerviewLasts.setLayoutManager(new LinearLayoutManager(requireContext() , LinearLayoutManager.HORIZONTAL , false));
                     binding.recyclerviewLasts.setAdapter(adapter);
-                    progressBar(false);
 
                 } else {
                     Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show();
-                    progressBar(false);
                 }
+                progressBar(false);
             }
 
             @Override
@@ -101,10 +102,8 @@ public class FragmentLasts extends Fragment implements Click_product_home {
 
     @Override
     public void onclick(int position) {
-        Intent intent = new Intent(requireActivity() , ProductActivity.class);
-        intent.putExtra("name", dataLastProducts.get(position).getItemName());
-        intent.putExtra("price", dataLastProducts.get(position).getPrice());
-        intent.putExtra("id", dataLastProducts.get(position).getItemId());
+        Intent intent = new Intent(requireContext() , ProductActivity.class);
+        intent.putExtra("product", list.get(position));
         startActivity(intent);
     }
 }

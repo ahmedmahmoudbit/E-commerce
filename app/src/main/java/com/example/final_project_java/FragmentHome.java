@@ -10,25 +10,37 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.final_project_java.activity.activities.ProductActivity;
+import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.activity.search.ProductResponse;
 import com.example.final_project_java.adapter.Adapter_categories;
-import com.example.final_project_java.adapter.Adapter_categories_item;
-import com.example.final_project_java.data.Click_product_home;
+import com.example.final_project_java.adapter.AdapterHomeItems;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.data.Data_categories;
-import com.example.final_project_java.data.Data_category_item;
 import com.example.final_project_java.databinding.FragmentHomeBinding;
+import com.example.final_project_java.network.ApiRetrofit;
+import com.example.final_project_java.network.RetrofitApis;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Fragment_Home extends Fragment implements Click_product_home {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class FragmentHome extends Fragment implements ClickProducts {
     NavController navController;
     FragmentHomeBinding binding;
-    ArrayList<Data_category_item> categories = new ArrayList<>();
+    List<ProductData> list;
+    AdapterHomeItems adapter;
 
 
     @Override
@@ -65,17 +77,25 @@ public class Fragment_Home extends Fragment implements Click_product_home {
     }
 
     private void item() {
-        Adapter_categories_item adapter;
+        ApiRetrofit.getapi().create(RetrofitApis.class).product().enqueue(new Callback<ProductResponse>() {
+            @Override
+            public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+                if (response.isSuccessful()) {
+                    list = response.body().getData();
+                    adapter = new AdapterHomeItems(list,requireContext(),FragmentHome.this);
+                    binding.recyclerViewItem.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL , false));
+                    binding.recyclerViewItem.setAdapter(adapter);
 
-        categories.add(new Data_category_item("t-shirt","26.99$",R.drawable.ttshirt));
-        categories.add(new Data_category_item("t-shirt","28.99$",R.drawable.ttshirt));
-        categories.add(new Data_category_item("t-shirt","59.99$",R.drawable.ttshirt));
-        categories.add(new Data_category_item("t-shirt","78.99$",R.drawable.ttshirt));
+                } else {
+                    Toast.makeText(requireContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
 
-        adapter = new Adapter_categories_item(categories,requireContext(),this);
-        binding.recyclerViewItem.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL , false));
-        binding.recyclerViewItem.setAdapter(adapter);
-
+            @Override
+            public void onFailure(Call<ProductResponse> call, Throwable t) {
+                Toast.makeText(requireContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void intent() {
@@ -89,9 +109,8 @@ public class Fragment_Home extends Fragment implements Click_product_home {
 
     @Override
     public void onclick(int position) {
-        Intent intent = new Intent(requireActivity() , ProductActivity.class);
-        intent.putExtra("name", categories.get(position).getName());
-        intent.putExtra("price", categories.get(position).getPrice());
+        Intent intent = new Intent(requireContext() , ProductActivity.class);
+        intent.putExtra("product", list.get(position));
         startActivity(intent);
     }
 

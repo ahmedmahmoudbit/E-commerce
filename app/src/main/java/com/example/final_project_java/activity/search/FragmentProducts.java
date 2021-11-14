@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.ProductActivity;
-import com.example.final_project_java.adapter.Adapter_result;
-import com.example.final_project_java.data.Click_product_home;
+import com.example.final_project_java.adapter.AdapterProducts;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.databinding.FragmentResultBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
@@ -29,10 +29,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FragmentProducts extends Fragment implements Click_product_home{
+public class FragmentProducts extends Fragment implements ClickProducts {
     FragmentResultBinding binding;
     List<ProductData> list;
-    Adapter_result adapter;
+    AdapterProducts adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +54,7 @@ public class FragmentProducts extends Fragment implements Click_product_home{
             public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
                 if (response.isSuccessful()) {
                     list = response.body().getData();
-                    adapter = new Adapter_result(list, FragmentProducts.this,requireContext());
+                    adapter = new AdapterProducts(list, FragmentProducts.this,requireContext());
                     binding.recyclerResult.setLayoutManager(new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL));
                     binding.recyclerResult.setAdapter(adapter);
 

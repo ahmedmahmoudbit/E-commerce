@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.final_project_java.activity.lasts_product.DataItem" />
+            type="com.example.final_project_java.activity.search.ProductData" />
     </data>
 
     <LinearLayout

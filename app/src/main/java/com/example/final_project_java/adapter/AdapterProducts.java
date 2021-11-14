@@ -11,20 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.search.ProductData;
-import com.example.final_project_java.data.Click_product_home;
-import com.example.final_project_java.data.Data_result;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.databinding.RecyclerResultBinding;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter_result extends RecyclerView.Adapter<Adapter_result.Holder> {
+public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.Holder> {
     List<ProductData> arrayList;
-    Click_product_home click;
+    ClickProducts click;
     Context context;
 
-    public Adapter_result(List<ProductData> arrayList, Click_product_home click, Context context) {
+    public AdapterProducts(List<ProductData> arrayList, ClickProducts click, Context context) {
         this.arrayList = arrayList;
         this.click = click;
         this.context = context;

@@ -80,12 +80,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_220sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            app:auto_cycle="false"
-            app:error_image="@drawable/bage1"
+            app:auto_cycle="true"
+            app:error_image="@drawable/error"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img_back"
-            app:placeholder="@drawable/bage1" />
+            app:placeholder="@color/white" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

@@ -10,21 +10,22 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.data.Click_product_home;
-import com.example.final_project_java.data.Data_category_item;
+import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.data.ClickProducts;
 import com.example.final_project_java.databinding.RecyclerCategoryItemBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Adapter_categories_item extends RecyclerView.Adapter<Adapter_categories_item.Holder> {
-    List<Data_category_item> dataCategoryItems;
+public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Holder> {
+    List<ProductData> list;
     Context context;
-    Click_product_home click_product_home;
+    ClickProducts click_products;
 
-    public Adapter_categories_item(List<Data_category_item> dataCategoryItems, Context context, Click_product_home click_product_home) {
-        this.dataCategoryItems = dataCategoryItems;
+    public AdapterHomeItems(List<ProductData> list, Context context, ClickProducts click_products) {
+        this.list = list;
         this.context = context;
-        this.click_product_home = click_product_home;
+        this.click_products = click_products;
     }
 
     @NonNull
@@ -35,19 +36,25 @@ public class Adapter_categories_item extends RecyclerView.Adapter<Adapter_catego
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-          holder.binding.setData(dataCategoryItems.get(position));
+          holder.binding.setData(list.get(position));
 
+        if (list.get(position).getImages().isEmpty()) {
+            holder.binding.imageItem.setImageResource(R.drawable.ic_remove_image);
+
+        } else {
+            Picasso.get().load(list.get(position).getImages().get(0).getImage()).into(holder.binding.imageItem);
+        }
           holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                  click_product_home.onclick(position);
+                  click_products.onclick(position);
               }
           });
     }
 
     @Override
     public int getItemCount() {
-        return dataCategoryItems.size();
+        return list.size();
     }
 
     class Holder extends RecyclerView.ViewHolder {

@@ -7,7 +7,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.navigation.NavController;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.final_project_java.Fragment_Home;
+import com.example.final_project_java.FragmentHome;
 import com.example.final_project_java.activity.carts.Fragment_carts;
 import com.example.final_project_java.Fragment_profile;
 import com.example.final_project_java.activity.lasts_product.FragmentLasts;
@@ -36,7 +36,7 @@ public class tablayout_result extends FragmentStateAdapter {
             case 4 : new Fragment_more();
         }
 
-        return new Fragment_Home();
+        return new FragmentHome();
     }
 
     @Override

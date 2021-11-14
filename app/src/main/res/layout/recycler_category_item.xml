@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.final_project_java.data.Data_category_item" />
+            type="com.example.final_project_java.activity.search.ProductData" />
     </data>
 
     <LinearLayout
@@ -26,7 +26,6 @@
                 android:id="@+id/image_item"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_70sdp"
-                app:imageResource="@{data.image}"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/_15sdp"
                 />
@@ -35,7 +34,7 @@
                 android:id="@+id/name_of_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{data.name}"
+                android:text="@{data.itemName}"
                 android:layout_marginTop="@dimen/_90sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:textColor="@color/singup"
