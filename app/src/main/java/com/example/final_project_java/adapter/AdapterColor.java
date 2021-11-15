@@ -23,7 +23,8 @@ import java.util.List;
 public class AdapterColor extends RecyclerView.Adapter<AdapterColor.Holder> {
     List<ProductColor> arrayList;
     Context context;
-    int select = -1;
+    public static int select = -1;
+    public static String color;
 
     // change select .
     private void selected(int adapterPosition) {
@@ -57,6 +58,7 @@ public class AdapterColor extends RecyclerView.Adapter<AdapterColor.Holder> {
 
         if (select == position) {
             holder.binding.selector.setVisibility(View.VISIBLE);
+            color = arrayList.get(position).getColorid();
         } else {
             holder.binding.selector.setVisibility(View.GONE);
         }

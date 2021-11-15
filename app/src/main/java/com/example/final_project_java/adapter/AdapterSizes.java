@@ -11,16 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.search.ProductSize;
-import com.example.final_project_java.data.Data_size;
 import com.example.final_project_java.databinding.RecyclerSizeBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterSizes extends RecyclerView.Adapter<AdapterSizes.Holder> {
     List<ProductSize> arrayList;
     Context context;
-    int select = -1;
+    public static int select = -1;
+    public static String size;
 
     private void selected(int adapterPosition) {
         if (adapterPosition == RecyclerView.NO_POSITION) return;
@@ -51,6 +50,7 @@ public class AdapterSizes extends RecyclerView.Adapter<AdapterSizes.Holder> {
 
         if (select == position) {
             holder.binding.tvSize.setTextColor(context.getResources().getColor(R.color.red_based));
+            size = arrayList.get(position).getName();
         } else {
             holder.binding.tvSize.setTextColor(context.getResources().getColor(R.color.singup));
         }

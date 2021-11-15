@@ -19,7 +19,7 @@
         />
     <fragment
         android:id="@+id/fragment_carts"
-        android:name="com.example.final_project_java.activity.carts.Fragment_carts"
+        android:name="com.example.final_project_java.activity.carts.FragmentCarts"
         android:label="Fragment_carts"
         tools:layout="@layout/fragment_carts"
         >

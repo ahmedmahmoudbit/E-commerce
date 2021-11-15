@@ -10,20 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.carts.show_cart.DataItem;
-import com.example.final_project_java.activity.carts.show_cart.ProductId;
-import com.example.final_project_java.data.Data_carts;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.RecyclerCartsBinding;
 
 import java.util.List;
 
-public class Adapter_carts extends RecyclerView.Adapter<Adapter_carts.Holder> {
+public class AdapterCarts extends RecyclerView.Adapter<AdapterCarts.Holder> {
     List<DataItem> productId;
     Context context;
 
-    public Adapter_carts(List<DataItem> productId, Context context) {
+    public AdapterCarts(List<DataItem> productId, Context context) {
         this.productId = productId;
         this.context = context;
     }
+
 
     @NonNull
     @Override

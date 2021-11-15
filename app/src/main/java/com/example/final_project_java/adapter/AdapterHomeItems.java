@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.search.ProductData;
-import com.example.final_project_java.data.ClickProducts;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.RecyclerCategoryItemBinding;
 import com.squareup.picasso.Picasso;
 
@@ -36,7 +37,9 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-          holder.binding.setData(list.get(position));
+        holder.itemView.startAnimation(AnimationUtils.loadAnimation(context,R.anim.animations));
+
+        holder.binding.setData(list.get(position));
 
         if (list.get(position).getImages().isEmpty()) {
             holder.binding.imageItem.setImageResource(R.drawable.ic_remove_image);

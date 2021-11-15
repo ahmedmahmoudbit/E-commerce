@@ -7,19 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.final_project_java.activity.activities.ProductActivity;
-import com.example.final_project_java.adapter.AdapterHomeItems;
-import com.example.final_project_java.data.ClickProducts;
-import com.example.final_project_java.data.Data_category_item;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentProductsprofileBinding;
-
-import java.util.ArrayList;
 
 public class Fragment_productsprofile extends Fragment implements ClickProducts {
    FragmentProductsprofileBinding binding;

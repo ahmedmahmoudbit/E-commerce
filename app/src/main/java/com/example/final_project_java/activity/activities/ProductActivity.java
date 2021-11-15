@@ -1,11 +1,13 @@
 package com.example.final_project_java.activity.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
@@ -17,6 +19,8 @@ import com.example.final_project_java.activity.carts.ActivityCarts;
 import com.example.final_project_java.activity.carts.add_cart.AddToCartRequest;
 import com.example.final_project_java.activity.carts.add_cart.AddToCartResponse;
 import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.adapter.AdapterColor;
+import com.example.final_project_java.adapter.AdapterSizes;
 import com.example.final_project_java.databinding.ActivityProductBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
@@ -40,23 +44,25 @@ public class ProductActivity extends AppCompatActivity {
     TabProductLayout tab_adapter;
     PreferenceManager preferenceManager;
     ProductData productData;
+    AddToCartRequest addToCartRequest;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this, R.layout.activity_product);
         preferenceManager = new PreferenceManager(this);
-
-
-        productData = new ProductData();
         productData = (ProductData) getIntent().getSerializableExtra("product");
         binding.tvItem.setText(productData.getItemName());
         binding.price.setText(productData.getPrice());
+        id = String.valueOf(productData.getItemId());
 
         tabLayout();
         intent();
         showImageSlider();
         transferDataToCarts();
+
+
 
     }
 
@@ -108,6 +114,14 @@ public class ProductActivity extends AppCompatActivity {
                 finish();
             }
         });
+        binding.share.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProductActivity.this, AdapterSizes.size, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductActivity.this, AdapterColor.color, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void showImageSlider(){
@@ -119,11 +133,9 @@ public class ProductActivity extends AppCompatActivity {
 
     private void transferDataToCarts() {
 
-        AddToCartRequest addToCartRequest = new AddToCartRequest("","",String.valueOf(productData.getItemId()));
+        addToCartRequest = new AddToCartRequest(AdapterSizes.size,AdapterColor.color,id);
 
         String getToken =  "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
-        Log.i(TAG, "intent_add_to_cart: test");
-
         binding.imageadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,4 +164,5 @@ public class ProductActivity extends AppCompatActivity {
             }
         });
     }
+
 }

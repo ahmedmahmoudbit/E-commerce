@@ -31,7 +31,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Fragment_Login extends Fragment {
+public class FragmentLogin extends Fragment {
     FragmentLoginBinding binding;
     private static final String TAG = "Fragment_Login";
     NavController navController;

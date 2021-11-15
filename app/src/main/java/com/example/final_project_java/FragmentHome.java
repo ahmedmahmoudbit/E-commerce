@@ -2,6 +2,10 @@ package com.example.final_project_java;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,20 +14,13 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.activity.search.ProductResponse;
-import com.example.final_project_java.adapter.Adapter_categories;
 import com.example.final_project_java.adapter.AdapterHomeItems;
-import com.example.final_project_java.data.ClickProducts;
+import com.example.final_project_java.adapter.Adapter_categories;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.data.Data_categories;
 import com.example.final_project_java.databinding.FragmentHomeBinding;
 import com.example.final_project_java.network.ApiRetrofit;
@@ -85,6 +82,7 @@ public class FragmentHome extends Fragment implements ClickProducts {
                     adapter = new AdapterHomeItems(list,requireContext(),FragmentHome.this);
                     binding.recyclerViewItem.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL , false));
                     binding.recyclerViewItem.setAdapter(adapter);
+                    progressBar(false);
 
                 } else {
                     Toast.makeText(requireContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
@@ -99,13 +97,24 @@ public class FragmentHome extends Fragment implements ClickProducts {
     }
 
     private void intent() {
-        binding.shopProfile.setOnClickListener(new View.OnClickListener() {
+        binding.img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity() , Shope_profie_activity.class));
             }
         });
     }
+
+    private void progressBar(Boolean loading) {
+        if (loading) {
+            binding.progress.setVisibility(View.VISIBLE);
+            binding.recyclerViewItem.setVisibility(View.GONE);
+        } else {
+            binding.recyclerViewItem.setVisibility(View.VISIBLE);
+            binding.progress.setVisibility(View.GONE);
+        }
+    }
+
 
     @Override
     public void onclick(int position) {

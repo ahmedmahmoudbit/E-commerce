@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.activity.search.ProductData;
-import com.example.final_project_java.adapter.AdapterHomeItems;
-import com.example.final_project_java.data.ClickProducts;
-import com.example.final_project_java.data.Data_category_item;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentHomeprofileBinding;
 
 import java.util.ArrayList;

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.adapter.AdapterProducts;
-import com.example.final_project_java.data.ClickProducts;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentResultBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;

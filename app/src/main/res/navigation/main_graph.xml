@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_Login2"
-        android:name="com.example.final_project_java.activity.login.Fragment_Login"
+        android:name="com.example.final_project_java.activity.login.FragmentLogin"
         tools:layout="@layout/fragment__login"
         android:label="Fragment_login" >
         <action

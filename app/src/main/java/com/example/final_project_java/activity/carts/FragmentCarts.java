@@ -1,7 +1,6 @@
 package com.example.final_project_java.activity.carts;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +11,12 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.carts.show_cart.DataItem;
-import com.example.final_project_java.activity.carts.show_cart.ProductId;
 import com.example.final_project_java.activity.carts.show_cart.ShowItemCardResponse;
-import com.example.final_project_java.adapter.Adapter_carts;
-import com.example.final_project_java.data.Data_carts;
+import com.example.final_project_java.adapter.AdapterCarts;
 import com.example.final_project_java.databinding.FragmentCartsBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
@@ -34,11 +30,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_carts extends Fragment {
+public class FragmentCarts extends Fragment {
     private static final String TAG = "Fragment_carts";
     FragmentCartsBinding binding;
     NavController navController;
-    Adapter_carts adapter;
+    AdapterCarts adapter;
     List<DataItem> categories;
     PreferenceManager preferenceManager;
 
@@ -66,7 +62,7 @@ public class Fragment_carts extends Fragment {
             public void onResponse(Call<ShowItemCardResponse> call, Response<ShowItemCardResponse> response) {
                 if(response.isSuccessful()) {
                     categories = response.body().getData();
-                    adapter = new Adapter_carts(categories,requireContext());
+                    adapter = new AdapterCarts(categories,requireContext());
                     binding.recyclerViewCarts.setLayoutManager(new LinearLayoutManager(requireContext()));
                     binding.recyclerViewCarts.setAdapter(adapter);
 

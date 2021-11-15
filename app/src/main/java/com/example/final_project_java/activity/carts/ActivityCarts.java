@@ -12,7 +12,7 @@ public class ActivityCarts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carts);
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav , new Fragment_carts()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav , new FragmentCarts()).commit();
         
     }
 

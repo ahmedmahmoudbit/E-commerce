@@ -20,7 +20,7 @@ import com.example.final_project_java.activity.activities.ProductActivity;
 import com.example.final_project_java.activity.activities.Result_activity;
 import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.adapter.AdapterLasts;
-import com.example.final_project_java.data.ClickProducts;
+import com.example.final_project_java.activity.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentLastsBinding;
 import com.example.final_project_java.network.ApiRetrofit;
 import com.example.final_project_java.network.RetrofitApis;
