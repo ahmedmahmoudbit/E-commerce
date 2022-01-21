@@ -14,10 +14,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.final_project_java.AddToCartSuccessfullyActivity;
+import com.example.final_project_java.CartActivity;
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.carts.ActivityCarts;
-import com.example.final_project_java.activity.carts.add_cart.AddToCartRequest;
-import com.example.final_project_java.activity.carts.add_cart.AddToCartResponse;
+import com.example.final_project_java.activity.carts.add_cart.addCartItem.AddToCartItemsResponse;
+import com.example.final_project_java.activity.carts.add_cart.addCartItem.AddToCartRequest;
 import com.example.final_project_java.activity.search.ProductData;
 import com.example.final_project_java.adapter.AdapterColor;
 import com.example.final_project_java.adapter.AdapterSizes;
@@ -29,7 +30,6 @@ import com.example.final_project_java.shared.PreferenceManager;
 import com.example.final_project_java.tabs.TabProductLayout;
 import com.google.android.material.tabs.TabLayout;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,8 +61,6 @@ public class ProductActivity extends AppCompatActivity {
         intent();
         showImageSlider();
         transferDataToCarts();
-
-
 
     }
 
@@ -110,7 +108,7 @@ public class ProductActivity extends AppCompatActivity {
         binding.imgCarts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProductActivity.this, ActivityCarts.class));
+                startActivity(new Intent(ProductActivity.this, CartActivity.class));
                 finish();
             }
         });
@@ -136,27 +134,29 @@ public class ProductActivity extends AppCompatActivity {
         addToCartRequest = new AddToCartRequest(AdapterSizes.size,AdapterColor.color,id);
 
         String getToken =  "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
+
+        Log.i(TAG, "transferDataToCarts: click ");
         binding.imageadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApiRetrofit.getapi().create(RetrofitApis.class).add_to_cart(getToken , addToCartRequest).enqueue(new Callback<AddToCartResponse>() {
+                Log.i(TAG, "transferDataToCarts: click 2");
+                ApiRetrofit.getapi().create(RetrofitApis.class).add_to_cart(getToken , addToCartRequest).enqueue(new Callback<AddToCartItemsResponse>() {
 
                     @Override
-                    public void onResponse(Call<AddToCartResponse> call, Response<AddToCartResponse> response) {
+                    public void onResponse(Call<AddToCartItemsResponse> call, Response<AddToCartItemsResponse> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(ProductActivity.this, "Add Successful", Toast.LENGTH_SHORT).show();
+                            Log.i(TAG, "transferDataToCarts: click 3 ");
+                            startActivity(new Intent(ProductActivity.this , AddToCartSuccessfullyActivity.class));
 
                         } else {
-                            try {
-                                Log.i(TAG, "onResponse: " + response.errorBody().string());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            Log.i(TAG, "onResponse: click 4" + response.message());
                         }
+                        Log.i(TAG, "onResponse: click 4" + response.message());
                     }
 
                     @Override
-                    public void onFailure(Call<AddToCartResponse> call, Throwable t) {
+                    public void onFailure(Call<AddToCartItemsResponse> call, Throwable t) {
+                        Log.i(TAG, "transferDataToCarts: click 5 ");
                         Toast.makeText(ProductActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
                     }

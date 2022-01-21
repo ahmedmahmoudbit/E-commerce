@@ -9,8 +9,8 @@
         android:title="search"
         android:icon="@drawable/ic_search" />
 
-    <item android:id="@+id/fragment_carts"
-        android:title="carts"
+    <item android:id="@+id/fragment_cart"
+        android:title="cart"
         android:icon="@drawable/cart" />
 
     <item android:id="@+id/fragment_profile2"

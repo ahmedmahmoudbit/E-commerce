@@ -19,7 +19,6 @@ public class Home_activity extends AppCompatActivity {
     private static final String TAG = "Home_activity";
     ActivityMainHomeActivityBinding binding;
 
-    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +26,8 @@ public class Home_activity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_home_activity);
         btn_notification();
         btn_message();
-
-        preferenceManager = new PreferenceManager(this);
         NavController navController = Navigation.findNavController(this,R.id.navfragment);
         NavigationUI.setupWithNavController(binding.buttonNav , navController);
-
 
     }
 

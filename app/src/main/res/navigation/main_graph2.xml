@@ -18,18 +18,6 @@
         tools:layout="@layout/fragment_lasts"
         />
     <fragment
-        android:id="@+id/fragment_carts"
-        android:name="com.example.final_project_java.activity.carts.FragmentCarts"
-        android:label="Fragment_carts"
-        tools:layout="@layout/fragment_carts"
-        >
-        <action
-            android:id="@+id/action_fragment_carts_to_fragment_checkout"
-            app:destination="@id/fragment_checkout"
-            app:popUpTo="@id/fragment_checkout"
-            app:popUpToInclusive="false" />
-    </fragment>
-    <fragment
         android:id="@+id/fragment_more2"
         android:name="com.example.final_project_java.activity.logoutAndmore.Fragment_more"
         android:label="fragment_more"
@@ -59,5 +47,15 @@
             android:id="@+id/action_fragment_checkout_to_order_done"
             app:destination="@id/order_done"
             app:popUpTo="@id/fragment_Home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_cart"
+        android:name="com.example.final_project_java.activity.carts.add_cart.FragmentCart"
+        android:label="FragmentCart"
+        tools:layout="@layout/fragment_cart"
+        >
+        <action
+            android:id="@+id/action_fragmentCart_to_fragment_checkout"
+            app:destination="@id/fragment_checkout" />
     </fragment>
 </navigation>

@@ -38,7 +38,6 @@ public class AdapterLasts extends RecyclerView.Adapter<AdapterLasts.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.binding.setData(arrayList.get(position));
 
-
         if (arrayList.get(position).getImages().isEmpty()) {
             holder.binding.imgLasts.setImageResource(R.drawable.ic_remove_image);
 
@@ -53,7 +52,6 @@ public class AdapterLasts extends RecyclerView.Adapter<AdapterLasts.Holder> {
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

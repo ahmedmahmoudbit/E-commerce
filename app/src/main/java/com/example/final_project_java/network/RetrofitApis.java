@@ -1,8 +1,11 @@
 package com.example.final_project_java.network;
 
-import com.example.final_project_java.activity.carts.add_cart.AddToCartRequest;
-import com.example.final_project_java.activity.carts.add_cart.AddToCartResponse;
-import com.example.final_project_java.activity.carts.show_cart.ShowItemCardResponse;
+import com.example.final_project_java.activity.carts.add_cart.add.AddResponse;
+import com.example.final_project_java.activity.carts.add_cart.addCartItem.AddToCartItemsResponse;
+import com.example.final_project_java.activity.carts.add_cart.addCartItem.AddToCartRequest;
+import com.example.final_project_java.activity.carts.add_cart.remov.RemoveResponse;
+import com.example.final_project_java.activity.carts.add_cart.showCartItems.ShowCartItemsResponse;
+import com.example.final_project_java.activity.carts.add_cart.sub.SubResponse;
 import com.example.final_project_java.activity.lasts_product.LastsResponse;
 import com.example.final_project_java.activity.login.LoginRequest;
 import com.example.final_project_java.activity.login.LoginResponse;
@@ -16,6 +19,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface RetrofitApis {
 
@@ -35,9 +39,23 @@ public interface RetrofitApis {
     Call<LastsResponse> lasts ();
 
     @POST("api/add-to-cart")
-    Call<AddToCartResponse> add_to_cart (@Header("Authorization") String token , AddToCartRequest addToCartRequest);
+    Call<AddToCartItemsResponse> add_to_cart (@Header("Authorization") String token ,@Body AddToCartRequest addToCartRequest);
 
     @GET("api/cart")
-    Call<ShowItemCardResponse> carts_show (@Header("Authorization") String token);
+    Call<ShowCartItemsResponse> carts_show (@Header("Authorization") String token);
+
+
+    @GET("api/add-qty/{item_id}")
+    Call<AddResponse> addItem(@Path("item_id") int itemId,
+                                     @Header("Authorization")String token);
+
+    @GET("api/sub-qty/{item_id}")
+    Call<SubResponse> subItem(@Path("item_id") int itemId,
+                              @Header("Authorization")String token);
+
+    @POST("api/remove-item/{item_id}")
+    Call<RemoveResponse> removeItem(@Path("item_id") int itemId,
+                                    @Header("Authorization")String token);
+
 
 }

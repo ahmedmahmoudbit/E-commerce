@@ -7,9 +7,10 @@
     </data>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.carts.ActivityCarts">
+        tools:context=".CartActivity">
 
         <FrameLayout
             android:id="@+id/nav"
