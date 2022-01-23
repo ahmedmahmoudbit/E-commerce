@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.logoutAndmore.Fragment_more">
+        tools:context=".activity.more.Fragment_more">
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                     android:text="Notification Settings" />
 
                 <TextView
-                    android:id="@+id/more_privacy"
+                    android:id="@+id/security"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -112,7 +112,7 @@
                     android:drawableStart="@drawable/privacy"
                     android:drawableEnd="@drawable/more_small"
                     android:gravity="center"
-                    android:text="Privacy Policy" />
+                    android:text="security" />
 
                 <TextView
                     android:id="@+id/more_frequently"

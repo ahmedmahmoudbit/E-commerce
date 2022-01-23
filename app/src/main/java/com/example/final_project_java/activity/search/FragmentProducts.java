@@ -15,12 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.activities.ProductActivity;
+import com.example.final_project_java.activity.activities.product.ProductActivity;
+import com.example.final_project_java.activity.activities.product.data.ProductData;
+import com.example.final_project_java.activity.activities.product.data.ProductResponse;
+import com.example.final_project_java.activity.search.data.SearchResponse;
 import com.example.final_project_java.adapter.AdapterProducts;
-import com.example.final_project_java.activity.interfaces.ClickProducts;
+import com.example.final_project_java.adapter.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentResultBinding;
-import com.example.final_project_java.network.ApiRetrofit;
-import com.example.final_project_java.network.RetrofitApis;
+import com.example.final_project_java.database.network.ApiRetrofit;
+import com.example.final_project_java.database.network.RetrofitApis;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +39,15 @@ public class FragmentProducts extends Fragment implements ClickProducts {
     List<ProductData> list;
     AdapterProducts adapter;
 
+//    String text;
+//    SearchResponse response;
+//
+//    public FragmentProducts(SearchResponse response) {
+//        this.response = response;
+//    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater , R.layout.fragment_result , container , false);
         return binding.getRoot();
@@ -51,7 +63,7 @@ public class FragmentProducts extends Fragment implements ClickProducts {
     private void products() {
         ApiRetrofit.getapi().create(RetrofitApis.class).product().enqueue(new Callback<ProductResponse>() {
             @Override
-            public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+            public void onResponse(@NotNull Call<ProductResponse> call, @NotNull Response<ProductResponse> response) {
                 if (response.isSuccessful()) {
                     list = response.body().getData();
                     adapter = new AdapterProducts(list, FragmentProducts.this,requireContext());
@@ -64,7 +76,7 @@ public class FragmentProducts extends Fragment implements ClickProducts {
             }
 
             @Override
-            public void onFailure(Call<ProductResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<ProductResponse> call, @NotNull Throwable t) {
                 Toast.makeText(requireContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });

@@ -16,14 +16,14 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.activities.ProductActivity;
-import com.example.final_project_java.activity.activities.Result_activity;
-import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.activity.activities.product.ProductActivity;
+import com.example.final_project_java.activity.activities.product.data.ProductData;
+import com.example.final_project_java.activity.search.SearchActivity;
 import com.example.final_project_java.adapter.AdapterLasts;
-import com.example.final_project_java.activity.interfaces.ClickProducts;
+import com.example.final_project_java.adapter.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentLastsBinding;
-import com.example.final_project_java.network.ApiRetrofit;
-import com.example.final_project_java.network.RetrofitApis;
+import com.example.final_project_java.database.network.ApiRetrofit;
+import com.example.final_project_java.database.network.RetrofitApis;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -54,12 +54,7 @@ public class FragmentLasts extends Fragment implements ClickProducts {
         list = new ArrayList<>();
         lasts();
 
-        binding.searchRecently.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(requireActivity() , Result_activity.class));
-            }
-        });
+        binding.searchSearch.setOnClickListener(v -> startActivity(new Intent(requireActivity() , SearchActivity.class)));
     }
 
     private void lasts() {

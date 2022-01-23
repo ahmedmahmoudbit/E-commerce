@@ -11,7 +11,7 @@
         android:background="#F5F6F8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Order_done">
+        tools:context=".activity.carts.order.Order_done">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginTop="@dimen/_20sdp"

@@ -1,6 +1,7 @@
 package com.example.final_project_java.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -9,8 +10,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.carts.add_cart.showCartItems.DataItem;
-import com.example.final_project_java.activity.interfaces.ClickValue;
+import com.example.final_project_java.activity.carts.cart_page.showCartItems.DataItem;
+import com.example.final_project_java.adapter.interfaces.ClickValue;
 import com.example.final_project_java.databinding.RecyclerCartsBinding;
 import com.squareup.picasso.Picasso;
 
@@ -42,6 +43,8 @@ public class AdapterCarts extends RecyclerView.Adapter<AdapterCarts.Holder> {
 
         // show image from cart .
         Picasso.get().load(list.get(position).getProductId().getImages().get(0).getImage()).into(holder.binding.cartsImage);
+        holder.binding.size.setText(list.get(position).getProductId().getSizes().get(0).getName());
+        holder.binding.color.setBackgroundColor(Color.parseColor(list.get(position).getProductId().getColor().get(0).getColorid()));
 
         // remove + add + sub .
         holder.binding.addItemCartsImage.setOnClickListener(v -> {

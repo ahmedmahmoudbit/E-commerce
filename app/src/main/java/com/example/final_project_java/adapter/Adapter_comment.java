@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.data.Data_comments;
+import com.example.final_project_java.database.data.Data_comments;
 import com.example.final_project_java.databinding.RecyclerCommentsBinding;
 
 import java.util.ArrayList;
@@ -34,9 +34,6 @@ public class Adapter_comment extends RecyclerView.Adapter<Adapter_comment.Holder
         final Data_comments person = arrayList.get(position);
         holder.binding.ratingComment.setImageResource(person.getRatting());
 //        holder.binding.photoComent.setImageResource(person.getPhoto());
-        holder.binding.ratingComment.setImageResource(person.getRatting());
-        holder.binding.ratingComment.setImageResource(person.getRatting());
-        holder.binding.ratingComment.setImageResource(person.getRatting());
     }
 
     @Override

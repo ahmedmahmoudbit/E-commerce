@@ -12,5 +12,6 @@
     <color name="singup">#515C6F</color>
     <color name="singup_opicity">#33515C6F</color>
     <color name="red_based" >#FF6969</color>
+    <color name="gray" >#92A9BD</color>
 
 </resources>

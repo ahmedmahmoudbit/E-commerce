@@ -15,24 +15,24 @@
         android:usesCleartextTraffic="true"
         android:usesNonSdkApi="true"
         tools:targetApi="m">
-        <activity android:name=".AddToCartSuccessfullyActivity" />
-        <activity android:name=".CartActivity" />
+        <activity android:name=".activity.activities.product.AddToCartSuccessfullyActivity" />
+        <activity android:name=".activity.carts.cart_page.CartActivity" />
         <activity android:name=".ChatActivity" />
         <activity
-            android:name=".activity.activities.ProductActivity"
+            android:name=".activity.activities.product.ProductActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Shope_profie_activity"
+            android:name=".activity.activities.shop_profile.Shope_profie_activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.activities.Notification_activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.activities.Home_activity"
+            android:name=".activity.home.Home_activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.activities.Result_activity"
+            android:name=".activity.search.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.activities.MainActivity"
@@ -46,7 +46,7 @@
         </activity>
 
         <service
-            android:name=".network.MyFirebaseMessagingService"
+            android:name=".database.network.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

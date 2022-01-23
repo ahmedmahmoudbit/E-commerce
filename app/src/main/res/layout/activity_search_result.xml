@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.activities.Result_activity">
+        tools:context=".activity.search.SearchActivity">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -17,68 +17,72 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/search_result_back"
+                <ImageButton
+                    android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:src="@drawable/back_1" />
+                    android:layout_margin="@dimen/_2sdp"
+                    android:backgroundTintMode="add"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/back_1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/search_search"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/search"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/_40sdp"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/_2sdp"
-                    app:boxBackgroundColor="#4DB7BDC6"
-                    app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
-                    app:boxCornerRadiusBottomStart="@dimen/_15sdp"
-                    app:boxCornerRadiusTopEnd="@dimen/_15sdp"
-                    app:boxCornerRadiusTopStart="@dimen/_15sdp"
-                    app:boxStrokeColor="#4D727C8E"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:hintTextColor="#7698DC"
-                    app:startIconDrawable="@drawable/search">
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableRight="@drawable/search"
+                    android:padding="@dimen/_10sdp"
+                    android:hint="what do you want ?"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/filter"
+                    app:layout_constraintStart_toEndOf="@id/back"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ImageView
+                <ImageButton
                     android:id="@+id/filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:src="@drawable/filter" />
+                    android:layout_margin="@dimen/_2sdp"
+                    android:backgroundTintMode="add"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/filter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tabIndicatorColor="@color/red_based"
+                app:tabSelectedTextColor="@color/red_based"
+                tools:ignore="NotSibling" />
 
             </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/search_search"
-                    android:layout_marginTop="@dimen/_40sdp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tabIndicatorColor="@color/red_based"
-                    app:tabSelectedTextColor="@color/red_based"
-                    tools:ignore="NotSibling" />
-
-            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 

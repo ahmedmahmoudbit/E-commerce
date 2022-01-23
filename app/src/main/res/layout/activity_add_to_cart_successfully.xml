@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".AddToCartSuccessfullyActivity">
+    tools:context=".activity.activities.product.AddToCartSuccessfullyActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/cart"

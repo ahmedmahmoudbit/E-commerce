@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.search.ProductSize;
+import com.example.final_project_java.activity.activities.product.data.ProductSize;
 import com.example.final_project_java.databinding.RecyclerSizeBinding;
 
 import java.util.List;

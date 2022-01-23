@@ -11,8 +11,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.search.ProductData;
-import com.example.final_project_java.activity.interfaces.ClickProducts;
+import com.example.final_project_java.activity.activities.product.data.ProductData;
+import com.example.final_project_java.adapter.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.RecyclerCategoryItemBinding;
 import com.squareup.picasso.Picasso;
 

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F4F4F4"
-        tools:context=".activity.activities.Home_activity">
+        tools:context=".activity.home.Home_activity">
 
         <ImageButton
             android:id="@+id/notification"

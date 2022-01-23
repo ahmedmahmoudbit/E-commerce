@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.adapter.Adapter_notification;
-import com.example.final_project_java.data.Data_notification;
+import com.example.final_project_java.database.data.Data_notification;
 import com.example.final_project_java.databinding.ActivityNotificationActivityBinding;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package com.example.final_project_java.activity.lasts_product;
 
-import com.example.final_project_java.activity.search.ProductData;
+import com.example.final_project_java.activity.activities.product.data.ProductData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -13,10 +13,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.search.ProductColor;
+import com.example.final_project_java.activity.activities.product.data.ProductColor;
 import com.example.final_project_java.databinding.RecyclerColorselectorBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)

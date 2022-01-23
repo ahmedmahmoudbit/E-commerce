@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.activities.Home_activity;
-import com.example.final_project_java.network.RetrofitApis;
+import com.example.final_project_java.activity.home.Home_activity;
+import com.example.final_project_java.database.network.RetrofitApis;
 import com.example.final_project_java.databinding.FragmentSignUpFragmentBinding;
-import com.example.final_project_java.shared.Constant;
-import com.example.final_project_java.shared.PreferenceManager;
+import com.example.final_project_java.database.shared.Constant;
+import com.example.final_project_java.database.shared.PreferenceManager;
 import com.google.gson.Gson;
 
 import retrofit2.Call;

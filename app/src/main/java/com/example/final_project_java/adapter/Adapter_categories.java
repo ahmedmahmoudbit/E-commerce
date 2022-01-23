@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.data.Data_categories;
+import com.example.final_project_java.database.data.Data_categories;
 import com.example.final_project_java.databinding.RecyclerCategoryBinding;
 
 import java.util.List;

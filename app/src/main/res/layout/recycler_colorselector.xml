@@ -11,15 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-
-
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/image_color"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
             app:cardCornerRadius="@dimen/_15sdp"
             android:layout_margin="@dimen/_5sdp"
-            app:cardBackgroundColor="@color/purple_500"
+            android:background="@color/black"
+            app:riv_oval="true"
+            app:riv_mutate_background="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -29,14 +29,13 @@
             android:id="@+id/selector"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
             android:layout_gravity="center"
             android:src="@drawable/close"
             app:layout_constraintBottom_toBottomOf="@id/image_color"
             app:layout_constraintEnd_toEndOf="@id/image_color"
             app:layout_constraintStart_toStartOf="@id/image_color"
             app:layout_constraintTop_toTopOf="@+id/image_color" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

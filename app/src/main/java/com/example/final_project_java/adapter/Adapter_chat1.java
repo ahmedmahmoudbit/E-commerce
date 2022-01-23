@@ -9,11 +9,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.data.Data_chat1;
-import com.example.final_project_java.data.Data_chat2;
+import com.example.final_project_java.database.data.Data_chat1;
 import com.example.final_project_java.databinding.RecyclerChat1Binding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter_chat1 extends RecyclerView.Adapter<Adapter_chat1.Holder> {

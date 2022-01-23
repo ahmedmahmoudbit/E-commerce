@@ -5,14 +5,14 @@
     <data>
         <variable
             name="data"
-            type="com.example.final_project_java.data.Data_comments" />
+            type="com.example.final_project_java.database.data.Data_comments" />
     </data>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Fragment_reviewsprofile">
+        tools:context=".activity.activities.product.FragmentReviews">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"

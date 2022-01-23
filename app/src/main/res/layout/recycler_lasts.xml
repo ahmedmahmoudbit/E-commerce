@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.final_project_java.activity.search.ProductData" />
+            type="com.example.final_project_java.activity.activities.product.data.ProductData" />
     </data>
 
     <LinearLayout
@@ -41,6 +41,7 @@
                     app:layout_constraintStart_toEndOf="@id/img_lasts"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:maxLength="12"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"

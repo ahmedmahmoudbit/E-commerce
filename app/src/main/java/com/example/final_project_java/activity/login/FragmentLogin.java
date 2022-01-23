@@ -16,11 +16,11 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.activities.Home_activity;
+import com.example.final_project_java.activity.home.Home_activity;
 import com.example.final_project_java.databinding.FragmentLoginBinding;
-import com.example.final_project_java.network.RetrofitApis;
-import com.example.final_project_java.shared.Constant;
-import com.example.final_project_java.shared.PreferenceManager;
+import com.example.final_project_java.database.network.RetrofitApis;
+import com.example.final_project_java.database.shared.Constant;
+import com.example.final_project_java.database.shared.PreferenceManager;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
@@ -125,6 +125,7 @@ public class FragmentLogin extends Fragment {
                     preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
                     preferenceManager.putInteger(Constant.Key_LOGIN ,response.body().getData().getId());
                     preferenceManager.putString(Constant.ACCESS_TOKEN ,response.body().getData().getAccessToken());
+                    preferenceManager.putInteger(Constant.ACCESS_ID ,response.body().getData().getId());
 
                     Toast.makeText(getContext(), "Welcome", Toast.LENGTH_SHORT).show();
 

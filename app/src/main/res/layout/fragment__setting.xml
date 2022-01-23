@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="#F5F6F8"
         android:orientation="vertical"
-        tools:context=".Fragment_profile">
+        tools:context=".activity.setting.Fragment_profile">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                     android:text="All My Orders" />
 
                 <TextView
-                    android:id="@+id/setting_shipments"
+                    android:id="@+id/my_profile"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -89,7 +89,7 @@
                     android:drawableStart="@drawable/pending_shipments"
                     android:drawableEnd="@drawable/more_small"
                     android:gravity="center"
-                    android:text="Pending Shipments" />
+                    android:text="My profile" />
 
                 <TextView
                     android:id="@+id/setting_payment"

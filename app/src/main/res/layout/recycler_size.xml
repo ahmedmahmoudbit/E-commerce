@@ -6,7 +6,7 @@
     <data>
     <variable
         name="data"
-        type="com.example.final_project_java.activity.search.ProductSize" />
+        type="com.example.final_project_java.activity.activities.product.data.ProductSize" />
     </data>
 
     <LinearLayout

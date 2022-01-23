@@ -6,19 +6,22 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.final_project_java.activity.carts.add_cart.FragmentCart;
+import com.example.final_project_java.activity.setting.Fragment_profile;
+import com.example.final_project_java.activity.carts.cart_page.FragmentCart;
 import com.example.final_project_java.activity.lasts_product.FragmentLasts;
-import com.example.final_project_java.activity.logoutAndmore.Fragment_more;
+import com.example.final_project_java.activity.more.Fragment_more;
 import com.example.final_project_java.activity.search.FragmentProducts;
 
 public class FragmentAdapter extends FragmentStateAdapter {
+//    SearchResponse response;
     public FragmentAdapter(@NonNull Fragment fragment) {
-
-        super(fragment );
+        super(fragment);
     }
 
     public FragmentAdapter(FragmentManager fragmentManager, Lifecycle lifecycle) {
         super(fragmentManager , lifecycle);
+//          SearchResponse response
+//        this.response = response;
     }
 
     @NonNull

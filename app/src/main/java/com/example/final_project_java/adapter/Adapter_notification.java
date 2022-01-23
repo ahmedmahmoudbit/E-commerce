@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project_java.R;
-import com.example.final_project_java.data.Data_notification;
+import com.example.final_project_java.database.data.Data_notification;
 import com.example.final_project_java.databinding.RecyclerNotificationsBinding;
 
 import java.util.ArrayList;

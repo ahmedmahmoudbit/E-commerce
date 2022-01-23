@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_Home2"
-        android:name="com.example.final_project_java.FragmentHome"
+        android:name="com.example.final_project_java.activity.home.FragmentHome"
         android:label="Fragment_Home"
         tools:layout="@layout/fragment__home"
         />
@@ -19,17 +19,17 @@
         />
     <fragment
         android:id="@+id/fragment_more2"
-        android:name="com.example.final_project_java.activity.logoutAndmore.Fragment_more"
+        android:name="com.example.final_project_java.activity.more.Fragment_more"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
     <fragment
         android:id="@+id/fragment_profile2"
-        android:name="com.example.final_project_java.Fragment_profile"
+        android:name="com.example.final_project_java.activity.setting.Fragment_profile"
         android:label="fragment__setting"
         tools:layout="@layout/fragment__setting" />
     <fragment
         android:id="@+id/order_done"
-        android:name="com.example.final_project_java.Order_done"
+        android:name="com.example.final_project_java.activity.carts.order.Order_done"
         android:label="Order_done"
         tools:layout="@layout/fragment_order_done"
         >
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_checkout"
-        android:name="com.example.final_project_java.Fragment_checkout"
+        android:name="com.example.final_project_java.activity.carts.cheackout.Fragment_checkout"
         android:label="fragment_checkout"
         tools:layout="@layout/fragment_checkout" >
         <action
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_cart"
-        android:name="com.example.final_project_java.activity.carts.add_cart.FragmentCart"
+        android:name="com.example.final_project_java.activity.carts.cart_page.FragmentCart"
         android:label="FragmentCart"
         tools:layout="@layout/fragment_cart"
         >

@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Shope_profie_activity">
+        tools:context=".activity.activities.shop_profile.Shope_profie_activity">
 
         <ImageView
             android:id="@+id/img"
