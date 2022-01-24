@@ -92,7 +92,7 @@
                     android:text="My profile" />
 
                 <TextView
-                    android:id="@+id/setting_payment"
+                    android:id="@+id/change_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -100,7 +100,7 @@
                     android:drawableStart="@drawable/pending_payment"
                     android:drawableEnd="@drawable/more_small"
                     android:gravity="center"
-                    android:text="Pending Payments" />
+                    android:text="Change Password" />
 
                 <TextView
                     android:id="@+id/setting_order"

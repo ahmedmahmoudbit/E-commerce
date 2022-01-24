@@ -18,16 +18,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.carts.cart_page.operations.add.AddResponse;
 import com.example.final_project_java.activity.carts.cart_page.operations.remov.RemoveResponse;
+import com.example.final_project_java.activity.carts.cart_page.operations.sub.SubResponse;
 import com.example.final_project_java.activity.carts.cart_page.showCartItems.DataItem;
 import com.example.final_project_java.activity.carts.cart_page.showCartItems.ShowCartItemsResponse;
-import com.example.final_project_java.activity.carts.cart_page.operations.sub.SubResponse;
-import com.example.final_project_java.adapter.interfaces.ClickValue;
 import com.example.final_project_java.adapter.AdapterCarts;
-import com.example.final_project_java.databinding.FragmentCartBinding;
+import com.example.final_project_java.adapter.interfaces.ClickValue;
 import com.example.final_project_java.database.network.ApiRetrofit;
 import com.example.final_project_java.database.network.RetrofitApis;
 import com.example.final_project_java.database.shared.Constant;
 import com.example.final_project_java.database.shared.PreferenceManager;
+import com.example.final_project_java.databinding.FragmentCartBinding;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -72,20 +72,28 @@ public class FragmentCart extends Fragment implements ClickValue {
             public void onResponse(@NotNull Call<ShowCartItemsResponse> call, @NotNull Response<ShowCartItemsResponse> response) {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
-                    list = response.body().getData();
-                    adapter = new AdapterCarts(list, requireContext() , FragmentCart.this);
-                    binding.recyclerViewCarts.setLayoutManager(new LinearLayoutManager(requireContext()));
-                    binding.recyclerViewCarts.setAdapter(adapter);
-                    countAmount();
+                    try {
+                        list = response.body().getData();
+                        adapter = new AdapterCarts(list, requireContext() , FragmentCart.this);
+                        binding.recyclerViewCarts.setLayoutManager(new LinearLayoutManager(requireContext()));
+                        binding.recyclerViewCarts.setAdapter(adapter);
+                        progressBar(false);
+                        countAmount();
+                    } catch (Exception e) {
+                        Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressBar(false);
+                    }
 
                 } else {
                     Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show();
+                    progressBar(false);
                 }
             }
 
             @Override
             public void onFailure(Call<ShowCartItemsResponse> call, Throwable t) {
                 Toast.makeText(requireContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                progressBar(false);
             }
         });
 
@@ -104,13 +112,14 @@ public class FragmentCart extends Fragment implements ClickValue {
     public void countAmount() {
         // count price items .
         totalAmount = 0.0;
+
         for (int i = 0; i < list.size(); i++) {
             double amount = Double.parseDouble(list.get(i).getQuantity())
-                    * Double.parseDouble(list.get(i).getProductId().getPrice());
+                    * Double.parseDouble(String.format(list.get(i).getProductId().getPrice() , 3 ));
             totalAmount = totalAmount + amount;
 
         }
-        binding.salary.setText(String.valueOf(totalAmount));
+        binding.salary.setText(String.valueOf(totalAmount) + "$");
 
     }
 
@@ -208,6 +217,16 @@ public class FragmentCart extends Fragment implements ClickValue {
             }
         });
 
+    }
+
+    private void progressBar(Boolean loading) {
+        if (loading) {
+            binding.progress.setVisibility(View.VISIBLE);
+            binding.recyclerViewCarts.setVisibility(View.GONE);
+        } else {
+            binding.recyclerViewCarts.setVisibility(View.VISIBLE);
+            binding.progress.setVisibility(View.GONE);
+        }
     }
 
 }

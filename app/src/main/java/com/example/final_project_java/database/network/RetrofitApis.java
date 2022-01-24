@@ -14,6 +14,8 @@ import com.example.final_project_java.activity.logout_more.LogoutResponse;
 import com.example.final_project_java.activity.register.RegisterRequest;
 import com.example.final_project_java.activity.register.RegisterResponse;
 import com.example.final_project_java.activity.search.data.SearchResponse;
+import com.example.final_project_java.activity.setting.change_password.data.ChangePasswordRequest;
+import com.example.final_project_java.activity.setting.change_password.data.ChangePasswordResponse;
 import com.example.final_project_java.activity.setting.profile.data.ProfileResponse;
 
 import retrofit2.Call;
@@ -51,6 +53,9 @@ public interface RetrofitApis {
 
     @POST("api/add-to-cart")
     Call<AddToCartItemsResponse> add_to_cart (@Header("Authorization") String token ,@Body AddToCartRequest addToCartRequest);
+
+    @POST("api/change-password")
+    Call<ChangePasswordResponse> change_password (@Header("Authorization") String token , @Body ChangePasswordRequest request);
 
     @GET("api/cart")
     Call<ShowCartItemsResponse> carts_show (@Header("Authorization") String token);

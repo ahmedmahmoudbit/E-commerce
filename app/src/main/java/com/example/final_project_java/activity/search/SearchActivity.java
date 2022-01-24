@@ -9,10 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 
-import com.example.final_project_java.Dialog_Fragment;
-import com.example.final_project_java.FragmentAdapter;
+import com.example.final_project_java.adapter.tabs.FragmentAdapter;
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.search.data.SearchResponse;
 import com.example.final_project_java.database.network.ApiRetrofit;
@@ -59,6 +57,7 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
+    // show items in viewPager .
     private void tabLayout() {
 //        SearchResponse response
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -97,12 +96,14 @@ public class SearchActivity extends AppCompatActivity {
     private void buttons() {
         binding.filter.setOnClickListener(v -> {
             // get Custom Dialog from Dialog_Fragment
-            getSupportFragmentManager().beginTransaction().add(new Dialog_Fragment() , "dialog").commit();
+            getSupportFragmentManager().beginTransaction().add(new FilterDialog() , "dialog").commit();
 
         });
+        // finish activity and close .
         binding.back.setOnClickListener(v -> finish());
     }
 
+    // search in api product
     private void search() {
         String search = binding.search.getText().toString().trim();
 
