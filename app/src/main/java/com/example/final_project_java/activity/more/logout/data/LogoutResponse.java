@@ -1,4 +1,4 @@
-package com.example.final_project_java.activity.logout_more;
+package com.example.final_project_java.activity.more.logout.data;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -64,8 +64,8 @@ public class FragmentCart extends Fragment implements ClickValue {
 
     }
 
+    // show item in carts.
     private void carts() {
-        // show item in carts.
         String token = "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
         ApiRetrofit.getapi().create(RetrofitApis.class).carts_show(token).enqueue(new Callback<ShowCartItemsResponse>() {
             @Override
@@ -99,8 +99,8 @@ public class FragmentCart extends Fragment implements ClickValue {
 
     }
 
+    // intent to checkout Screen .
     private void intent() {
-        // intent to checkout Screen .
         binding.click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,10 +109,9 @@ public class FragmentCart extends Fragment implements ClickValue {
         });
     }
 
+    // count price items .
     public void countAmount() {
-        // count price items .
         totalAmount = 0.0;
-
         for (int i = 0; i < list.size(); i++) {
             double amount = Double.parseDouble(list.get(i).getQuantity())
                     * Double.parseDouble(String.format(list.get(i).getProductId().getPrice() , 3 ));
@@ -195,6 +194,7 @@ public class FragmentCart extends Fragment implements ClickValue {
         });
     }
 
+    // remove quantity item from api and change price .
     @Override
     public void onclickRemove(int productId , int position) {
         // take token .
@@ -219,6 +219,7 @@ public class FragmentCart extends Fragment implements ClickValue {
 
     }
 
+    // progressBar
     private void progressBar(Boolean loading) {
         if (loading) {
             binding.progress.setVisibility(View.VISIBLE);

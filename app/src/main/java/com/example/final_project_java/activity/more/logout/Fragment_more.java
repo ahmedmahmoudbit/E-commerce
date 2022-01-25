@@ -1,4 +1,4 @@
-package com.example.final_project_java.activity.more;
+package com.example.final_project_java.activity.more.logout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +15,7 @@ import android.widget.Toast;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.MainActivity;
-import com.example.final_project_java.activity.logout_more.LogoutResponse;
-import com.example.final_project_java.activity.setting.profile.ProfileFragment;
+import com.example.final_project_java.activity.more.logout.data.LogoutResponse;
 import com.example.final_project_java.database.network.RetrofitApis;
 import com.example.final_project_java.databinding.FragmentMoreBinding;
 import com.example.final_project_java.database.network.ApiRetrofit;

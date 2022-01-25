@@ -8,7 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.final_project_java.activity.carts.cart_page.FragmentCart;
 import com.example.final_project_java.activity.lasts_product.FragmentLasts;
-import com.example.final_project_java.activity.more.Fragment_more;
+import com.example.final_project_java.activity.more.logout.Fragment_more;
 import com.example.final_project_java.activity.search.FragmentProducts;
 import com.example.final_project_java.activity.setting.Fragment_profile;
 

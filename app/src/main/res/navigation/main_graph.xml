@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgot_password_fragment"
-        android:name="com.example.final_project_java.activity.passeord_reset.Forgot_password_fragment"
+        android:name="com.example.final_project_java.activity.passeord_reset.ForgotPasswordFragment"
         android:label="fragment_forgot_password_fragment"
         tools:layout="@layout/fragment_forgot_password_fragment" >
         <action

@@ -7,4 +7,6 @@ public class Constant {
     public static final String ACCESS_TOKEN  = "token";
     public static final String ACCESS_ID  = "id";
     public static final String TOKEN_DEVICE  = "token_device";
+    public static final String LONGITUDE  = "Longitude";
+    public static final String LATITUDE  = "Latitude";
 }

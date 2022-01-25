@@ -4,6 +4,7 @@
     package="com.example.final_project_java">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,7 @@
         android:usesCleartextTraffic="true"
         android:usesNonSdkApi="true"
         tools:targetApi="m">
+        <activity android:name=".activity.carts.cheackout.MapsActivity"></activity>
         <activity android:name=".activity.activities.product.AddToCartSuccessfullyActivity" />
         <activity android:name=".activity.carts.cart_page.CartActivity" />
         <activity android:name=".ChatActivity" />
