@@ -39,7 +39,7 @@ public class ProfileFragment extends DialogFragment {
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // convert design to dialog
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(getDialog()).getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
         return binding.getRoot();
     }
@@ -47,28 +47,29 @@ public class ProfileFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         // define preferenceManager
         preferenceManager = new PreferenceManager(requireContext());
 
         // get token and id from local database ( SharedPreferences )
         String token = "Bearer " + preferenceManager.getString(Constant.ACCESS_TOKEN);
-        int id =preferenceManager.getInteger(Constant.ACCESS_ID);
+        int id = preferenceManager.getInteger(Constant.ACCESS_ID);
 
         ApiRetrofit.getapi().create(RetrofitApis.class).profile(token , id).enqueue(new Callback<ProfileResponse>() {
             @Override
             public void onResponse(@NotNull Call<ProfileResponse> call, @NotNull Response<ProfileResponse> response) {
                 // get name and email from api and set data to design.
-                if (response.body().isStatus()) {
+                if (response.isSuccessful()) {
                     binding.email.setText(response.body().getData().getEmail());
                     binding.name.setText(response.body().getData().getName());
                 }
+                Log.i(TAG, "onResponse: "+response.body().getMessage());
             }
 
             @Override
             public void onFailure(@NotNull Call<ProfileResponse> call, @NotNull Throwable t) {
                 // on failure data .
                 Toast.makeText(requireContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "onResponse: "+t.getLocalizedMessage());
             }
         });
 

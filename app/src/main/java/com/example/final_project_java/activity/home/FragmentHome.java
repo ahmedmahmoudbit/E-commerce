@@ -2,6 +2,8 @@ package com.example.final_project_java.activity.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PerformanceHintManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +26,12 @@ import com.example.final_project_java.adapter.AdapterHomeItems;
 import com.example.final_project_java.adapter.Adapter_categories;
 import com.example.final_project_java.adapter.interfaces.ClickProducts;
 import com.example.final_project_java.database.data.Data_categories;
+import com.example.final_project_java.database.shared.Constant;
+import com.example.final_project_java.database.shared.PreferenceManager;
 import com.example.final_project_java.databinding.FragmentHomeBinding;
 import com.example.final_project_java.database.network.ApiRetrofit;
 import com.example.final_project_java.database.network.RetrofitApis;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -42,8 +47,8 @@ public class FragmentHome extends Fragment implements ClickProducts {
     FragmentHomeBinding binding;
     List<ProductData> list;
     AdapterHomeItems adapter;
-
-
+    private static final String TAG = "FragmentHome";
+    PreferenceManager preferenceManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment__home, container, false);
@@ -54,6 +59,8 @@ public class FragmentHome extends Fragment implements ClickProducts {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        preferenceManager = new PreferenceManager(requireContext());
+
         category();
         items();
         intent();
@@ -81,6 +88,7 @@ public class FragmentHome extends Fragment implements ClickProducts {
         ApiRetrofit.getapi().create(RetrofitApis.class).product().enqueue(new Callback<ProductResponse>() {
             @Override
             public void onResponse(@NotNull Call<ProductResponse> call, @NotNull Response<ProductResponse> response) {
+                assert response.body() != null;
                 if (response.isSuccessful()) {
                     list = response.body().getData();
                     adapter = new AdapterHomeItems(list,requireContext(),FragmentHome.this);

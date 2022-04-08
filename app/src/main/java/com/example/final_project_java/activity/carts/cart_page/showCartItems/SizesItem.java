@@ -1,10 +1,8 @@
-package com.example.final_project_java.activity.activities.product.data;
+package com.example.final_project_java.activity.carts.cart_page.showCartItems;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class ProductSize implements Serializable {
+public class SizesItem{
 
 	@SerializedName("name")
 	private String name;

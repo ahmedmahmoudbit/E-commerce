@@ -29,8 +29,8 @@ import android.widget.Toast;
 
 import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.MainActivity;
+import com.example.final_project_java.activity.carts.cart_page.data.PlaceOrderResponse;
 import com.example.final_project_java.activity.carts.cheackout.data.PlaceOrderRequest;
-import com.example.final_project_java.activity.carts.cheackout.data.PlaceOrderResponse;
 import com.example.final_project_java.adapter.Adapter_checkout;
 import com.example.final_project_java.database.data.Data_checkout;
 import com.example.final_project_java.database.network.ApiRetrofit;

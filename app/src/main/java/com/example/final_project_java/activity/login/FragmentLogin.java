@@ -119,20 +119,16 @@ public class FragmentLogin extends Fragment {
                     Toast.makeText(getContext(), message.getMessage(), Toast.LENGTH_SHORT).show();
                     progressBar(false);
                     return;
-
-                } if (response.isSuccessful()) {
-
-                    preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
-                    preferenceManager.putInteger(Constant.Key_LOGIN ,response.body().getData().getId());
-                    preferenceManager.putString(Constant.ACCESS_TOKEN ,response.body().getData().getAccessToken());
-                    preferenceManager.putInteger(Constant.ACCESS_ID ,response.body().getData().getId());
-
-                    Toast.makeText(getContext(), "Welcome", Toast.LENGTH_SHORT).show();
-
-                    startActivity((new Intent(requireActivity() , Home_activity.class)));
-                    requireActivity().finish();
-                    progressBar(false);
                 }
+
+                assert response.body() != null;
+                preferenceManager.putString(Constant.ACCESS_TOKEN ,response.body().getData().getAccessToken());
+                preferenceManager.putInteger(Constant.ACCESS_ID ,response.body().getData().getId());
+                preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
+
+                startActivity((new Intent(requireActivity() , Home_activity.class)));
+                requireActivity().finish();
+                progressBar(false);
 
 
             }

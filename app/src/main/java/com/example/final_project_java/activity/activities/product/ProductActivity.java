@@ -14,19 +14,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.product.data.ProductData;
 import com.example.final_project_java.activity.carts.cart_page.CartActivity;
-import com.example.final_project_java.R;
-import com.example.final_project_java.activity.carts.cart_page.addCartItem.AddToCartItemsResponse;
 import com.example.final_project_java.activity.carts.cart_page.addCartItem.AddToCartRequest;
+import com.example.final_project_java.activity.carts.cart_page.addCartItem.data.AddToCartItemsResponse;
 import com.example.final_project_java.adapter.AdapterColor;
 import com.example.final_project_java.adapter.AdapterSizes;
-import com.example.final_project_java.databinding.ActivityProductBinding;
+import com.example.final_project_java.adapter.tabs.TabProductLayout;
 import com.example.final_project_java.database.network.ApiRetrofit;
 import com.example.final_project_java.database.network.RetrofitApis;
 import com.example.final_project_java.database.shared.Constant;
 import com.example.final_project_java.database.shared.PreferenceManager;
-import com.example.final_project_java.adapter.tabs.TabProductLayout;
+import com.example.final_project_java.databinding.ActivityProductBinding;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -46,6 +46,7 @@ public class ProductActivity extends AppCompatActivity {
     AddToCartRequest addToCartRequest;
     String id;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +129,7 @@ public class ProductActivity extends AppCompatActivity {
         binding.imageslider.setImageList(imageList,true);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void transferDataToCarts() {
 
         addToCartRequest = new AddToCartRequest(AdapterSizes.size,AdapterColor.color,id);

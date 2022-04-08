@@ -1,6 +1,8 @@
 package com.example.final_project_java.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,10 +38,12 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, int position) {
+    public void onBindViewHolder(@NonNull Holder holder, @SuppressLint("RecyclerView") int position) {
         holder.itemView.startAnimation(AnimationUtils.loadAnimation(context,R.anim.animations));
 
         holder.binding.setData(list.get(position));
+
+        System.out.println("issss"+list.get(position).getImages().get(0).getImage());
 
         if (list.get(position).getImages().isEmpty()) {
             holder.binding.imageItem.setImageResource(R.drawable.ic_remove_image);

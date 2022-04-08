@@ -18,7 +18,6 @@ import com.example.final_project_java.R;
 import com.example.final_project_java.activity.activities.product.ProductActivity;
 import com.example.final_project_java.activity.activities.product.data.ProductData;
 import com.example.final_project_java.activity.activities.product.data.ProductResponse;
-import com.example.final_project_java.activity.search.data.SearchResponse;
 import com.example.final_project_java.adapter.AdapterProducts;
 import com.example.final_project_java.adapter.interfaces.ClickProducts;
 import com.example.final_project_java.databinding.FragmentResultBinding;

@@ -10,9 +10,9 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import com.example.final_project_java.activity.search.data.SearchResponses;
 import com.example.final_project_java.adapter.tabs.FragmentAdapter;
 import com.example.final_project_java.R;
-import com.example.final_project_java.activity.search.data.SearchResponse;
 import com.example.final_project_java.database.network.ApiRetrofit;
 import com.example.final_project_java.database.network.RetrofitApis;
 import com.example.final_project_java.databinding.ActivitySearchResultBinding;
@@ -108,16 +108,16 @@ public class SearchActivity extends AppCompatActivity {
         String search = binding.search.getText().toString().trim();
 
         if(!search.isEmpty()) {
-            ApiRetrofit.getapi().create(RetrofitApis.class).search(search).enqueue(new Callback<SearchResponse>() {
+            ApiRetrofit.getapi().create(RetrofitApis.class).search(search).enqueue(new Callback<SearchResponses>() {
                 @Override
-                public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
+                public void onResponse(Call<SearchResponses> call, Response<SearchResponses> response) {
                     if(response.body().isStatus()) {
                         tabLayout();
                     }
                 }
 
                 @Override
-                public void onFailure(Call<SearchResponse> call, Throwable t) {
+                public void onFailure(Call<SearchResponses> call, Throwable t) {
 
                 }
             });

@@ -110,10 +110,12 @@ public class Sign_up_fragment extends Fragment {
                     Toast.makeText(getContext(), "Account Created", Toast.LENGTH_SHORT).show();
                     startActivity((new Intent(requireActivity(), Home_activity.class)));
                     requireActivity().finish();
-
                     preferenceManager.putBoolean(Constant.KEY_PREFERENCE_NAME , true);
                     preferenceManager.putInteger(Constant.Key_REGISTER , response.body().getData().getId());
-                    preferenceManager.putString(Constant.ACCESS_TOKEN , response.body().getData().getAccessToken());
+                    preferenceManager.putString(Constant.ACCESS_TOKEN ,response.body().getData().getAccessToken());
+                    preferenceManager.putInteger(Constant.ACCESS_ID ,response.body().getData().getId());
+
+
                     progressbar(false);
                 }
 

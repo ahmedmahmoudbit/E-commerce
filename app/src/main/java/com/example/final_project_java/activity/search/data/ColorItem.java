@@ -1,10 +1,8 @@
-package com.example.final_project_java.activity.activities.product.data;
+package com.example.final_project_java.activity.search.data;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class ProductColor implements Serializable {
+public class ColorItem{
 
 	@SerializedName("colorid")
 	private String colorid;
