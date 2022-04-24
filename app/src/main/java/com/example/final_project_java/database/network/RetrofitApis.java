@@ -1,14 +1,15 @@
 package com.example.final_project_java.database.network;
 
 import com.example.final_project_java.activity.activities.product.data.ProductResponse;
+import com.example.final_project_java.activity.carts.cart_page.addCartItem.AddToCartRequest;
 import com.example.final_project_java.activity.carts.cart_page.addCartItem.data.AddToCartItemsResponse;
 import com.example.final_project_java.activity.carts.cart_page.data.PlaceOrderResponse;
 import com.example.final_project_java.activity.carts.cart_page.operations.add.AddResponse;
-import com.example.final_project_java.activity.carts.cart_page.addCartItem.AddToCartRequest;
 import com.example.final_project_java.activity.carts.cart_page.operations.remov.RemoveResponse;
-import com.example.final_project_java.activity.carts.cart_page.showCartItems.ShowCartItemsResponse;
 import com.example.final_project_java.activity.carts.cart_page.operations.sub.SubResponse;
+import com.example.final_project_java.activity.carts.cart_page.showCartItems.ShowCartItemsResponse;
 import com.example.final_project_java.activity.carts.cheackout.data.PlaceOrderRequest;
+import com.example.final_project_java.activity.details_data_by_id.data.ResultDataByIdResponses;
 import com.example.final_project_java.activity.lasts_product.LastsResponse;
 import com.example.final_project_java.activity.login.LoginRequest;
 import com.example.final_project_java.activity.login.LoginResponse;
@@ -52,10 +53,10 @@ public interface RetrofitApis {
         // from postman is = api/forgot-password?email=###
     Call<ForgotPasswordResponse> forgot_password(@Query("email") String emil);
 
-    @GET("api/api/search")
+    @POST("api/search")
     @FormUrlEncoded
         // add simple Request
-    Call<SearchResponses> search(@Field("product_id") String search);
+    Call<SearchResponses> search(@Field("search-name") String search);
 
     @GET("api/latest-product")
     Call<LastsResponse> lasts();
@@ -86,5 +87,7 @@ public interface RetrofitApis {
         // from postman is = api/sub-qty/1
     Call<RemoveResponse> removeItem(@Path("item_id") int itemId, @Header("Authorization") String token);
 
+    @GET("api/show-product/{item_id}")
+    Call<ResultDataByIdResponses> getItemById(@Path("item_id") int itemId);
 
 }

@@ -1,13 +1,9 @@
-package com.example.final_project_java.activity.search.data;
+package com.example.final_project_java.activity.details_data_by_id.data;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class DataItem implements Parcelable {
+public class DataDetailes {
 
 	@SerializedName("images")
 	private List<ImagesItem> images;
@@ -28,7 +24,7 @@ public class DataItem implements Parcelable {
 	private String price;
 
 	@SerializedName("review")
-	private List<ReviewItem> review;
+	private List<Object> review;
 
 	@SerializedName("description")
 	private String description;
@@ -40,33 +36,10 @@ public class DataItem implements Parcelable {
 	private String itemName;
 
 	@SerializedName("details")
-	private List<Object> details;
+	private List<DetailsItem> details;
 
 	@SerializedName("price_after_discount")
 	private String priceAfterDiscount;
-
-	protected DataItem(Parcel in) {
-		itemImageUrl = in.readString();
-		color = in.createTypedArrayList(ColorItem.CREATOR);
-		itemId = in.readInt();
-		price = in.readString();
-		description = in.readString();
-		discount = in.readString();
-		itemName = in.readString();
-		priceAfterDiscount = in.readString();
-	}
-
-	public static final Creator<DataItem> CREATOR = new Creator<DataItem>() {
-		@Override
-		public DataItem createFromParcel(Parcel in) {
-			return new DataItem(in);
-		}
-
-		@Override
-		public DataItem[] newArray(int size) {
-			return new DataItem[size];
-		}
-	};
 
 	public void setImages(List<ImagesItem> images){
 		this.images = images;
@@ -116,11 +89,11 @@ public class DataItem implements Parcelable {
 		return price;
 	}
 
-	public void setReview(List<ReviewItem> review){
+	public void setReview(List<Object> review){
 		this.review = review;
 	}
 
-	public List<ReviewItem> getReview(){
+	public List<Object> getReview(){
 		return review;
 	}
 
@@ -148,11 +121,11 @@ public class DataItem implements Parcelable {
 		return itemName;
 	}
 
-	public void setDetails(List<Object> details){
+	public void setDetails(List<DetailsItem> details){
 		this.details = details;
 	}
 
-	public List<Object> getDetails(){
+	public List<DetailsItem> getDetails(){
 		return details;
 	}
 
@@ -167,7 +140,7 @@ public class DataItem implements Parcelable {
 	@Override
  	public String toString(){
 		return 
-			"DataItem{" + 
+			"Data{" + 
 			"images = '" + images + '\'' + 
 			",item_image_url = '" + itemImageUrl + '\'' + 
 			",sizes = '" + sizes + '\'' + 
@@ -182,21 +155,4 @@ public class DataItem implements Parcelable {
 			",price_after_discount = '" + priceAfterDiscount + '\'' + 
 			"}";
 		}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel parcel, int i) {
-		parcel.writeString(itemImageUrl);
-		parcel.writeTypedList(color);
-		parcel.writeInt(itemId);
-		parcel.writeString(price);
-		parcel.writeString(description);
-		parcel.writeString(discount);
-		parcel.writeString(itemName);
-		parcel.writeString(priceAfterDiscount);
-	}
 }

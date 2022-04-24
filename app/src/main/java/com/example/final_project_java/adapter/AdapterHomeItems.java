@@ -43,13 +43,12 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
 
         holder.binding.setData(list.get(position));
 
-        System.out.println("issss"+list.get(position).getImages().get(0).getImage());
-
         if (list.get(position).getImages().isEmpty()) {
             holder.binding.imageItem.setImageResource(R.drawable.ic_remove_image);
 
         } else {
-            Picasso.get().load(list.get(position).getImages().get(0).getImage()).into(holder.binding.imageItem);
+            holder.binding.imageItem.setImageResource(R.drawable.jacket1);
+//            Picasso.get().load(list.get(position).getImages().get(0).getImage()).into(holder.binding.imageItem);
         }
           holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
               @Override

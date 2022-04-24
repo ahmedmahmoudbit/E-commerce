@@ -1,8 +1,13 @@
 package com.example.final_project_java.activity.search.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class ReviewItem{
+import java.io.Serializable;
+
+public class ReviewItem implements Parcelable {
 
 	@SerializedName("comment")
 	private String comment;
@@ -15,6 +20,24 @@ public class ReviewItem{
 
 	@SerializedName("rate_no")
 	private String rateNo;
+
+	protected ReviewItem(Parcel in) {
+		comment = in.readString();
+		creatDate = in.readString();
+		rateNo = in.readString();
+	}
+
+	public static final Creator<ReviewItem> CREATOR = new Creator<ReviewItem>() {
+		@Override
+		public ReviewItem createFromParcel(Parcel in) {
+			return new ReviewItem(in);
+		}
+
+		@Override
+		public ReviewItem[] newArray(int size) {
+			return new ReviewItem[size];
+		}
+	};
 
 	public void setComment(String comment){
 		this.comment = comment;
@@ -58,4 +81,16 @@ public class ReviewItem{
 			",rate_no = '" + rateNo + '\'' + 
 			"}";
 		}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel parcel, int i) {
+		parcel.writeString(comment);
+		parcel.writeString(creatDate);
+		parcel.writeString(rateNo);
+	}
 }

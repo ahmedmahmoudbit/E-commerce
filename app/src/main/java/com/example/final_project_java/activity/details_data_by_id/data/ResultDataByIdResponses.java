@@ -1,13 +1,12 @@
-package com.example.final_project_java.activity.search.data;
+package com.example.final_project_java.activity.details_data_by_id.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.final_project_java.activity.activities.product.data.ProductData;
 import com.google.gson.annotations.SerializedName;
 
-public class SearchResponses{
+public class ResultDataByIdResponses{
 
 	@SerializedName("data")
-	private ArrayList<DataItem> data;
+	private ProductData data;
 
 	@SerializedName("message")
 	private String message;
@@ -15,11 +14,11 @@ public class SearchResponses{
 	@SerializedName("status")
 	private boolean status;
 
-	public void setData(ArrayList<DataItem> data){
+	public void setData(ProductData data){
 		this.data = data;
 	}
 
-	public ArrayList<DataItem> getData(){
+	public ProductData getData(){
 		return data;
 	}
 
@@ -42,7 +41,7 @@ public class SearchResponses{
 	@Override
  	public String toString(){
 		return 
-			"SearchResponses{" + 
+			"ResultDataByIdResponses{" + 
 			"data = '" + data + '\'' + 
 			",message = '" + message + '\'' + 
 			",status = '" + status + '\'' + 

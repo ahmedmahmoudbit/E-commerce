@@ -1,5 +1,6 @@
 package com.example.final_project_java.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,15 +36,15 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.Holder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, int position) {
+    public void onBindViewHolder(@NonNull Holder holder, @SuppressLint("RecyclerView") int position) {
         holder.binding.setData(arrayList.get(position));
 
 
         if (arrayList.get(position).getImages().isEmpty()) {
             holder.binding.img.setImageResource(R.drawable.ic_remove_image);
-
         } else {
-            Picasso.get().load(arrayList.get(position).getImages().get(0).getImage()).into(holder.binding.img);
+            holder.binding.img.setImageResource(R.drawable.jacket1);
+            // Picasso.get().load(arrayList.get(position).getImages().get(0).getImage()).into(holder.binding.img);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

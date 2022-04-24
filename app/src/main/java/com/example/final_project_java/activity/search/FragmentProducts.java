@@ -88,4 +88,5 @@ public class FragmentProducts extends Fragment implements ClickProducts {
         intent.putExtra("product", list.get(position));
         startActivity(intent);
     }
+
 }

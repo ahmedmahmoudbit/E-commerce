@@ -20,6 +20,9 @@
         android:usesNonSdkApi="true"
         tools:targetApi="m">
         <activity
+            android:name=".activity.search.searchResult.SearchResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.details_data_by_id.DetailsDataByIdActivity"
             android:exported="false" />
         <activity android:name=".activity.carts.cheackout.MapsActivity" />

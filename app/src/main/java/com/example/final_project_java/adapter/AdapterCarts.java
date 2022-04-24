@@ -42,7 +42,8 @@ public class AdapterCarts extends RecyclerView.Adapter<AdapterCarts.Holder> {
         holder.binding.setData(list.get(position));
 
         // show image from cart .
-        Picasso.get().load(list.get(position).getProductId().getImages().get(0).getImage()).into(holder.binding.cartsImage);
+        holder.binding.cartsImage.setImageResource(R.drawable.jacket1);
+        // Picasso.get().load(list.get(position).getProductId().getImages().get(0).getImage()).into(holder.binding.cartsImage);
         holder.binding.size.setText(list.get(position).getProductId().getSizes().get(0).getName());
         holder.binding.color.setBackgroundColor(Color.parseColor(list.get(position).getProductId().getColor().get(0).getColorid()));
 
